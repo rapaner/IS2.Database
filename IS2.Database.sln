@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IS2.Database.Common", "IS2.Database.Common\IS2.Database.Common.csproj", "{04DE4C5C-0132-4535-9DA9-DAAADCCE5E02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IS2.Database.Common", "IS2.Database.Common\IS2.Database.Common.csproj", "{04DE4C5C-0132-4535-9DA9-DAAADCCE5E02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IS2.Database.ConfigurationData", "IS2.Database.ConfigurationData\IS2.Database.ConfigurationData.csproj", "{717225F0-812C-4A0E-A3A7-23FA6BFC4DD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{04DE4C5C-0132-4535-9DA9-DAAADCCE5E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04DE4C5C-0132-4535-9DA9-DAAADCCE5E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04DE4C5C-0132-4535-9DA9-DAAADCCE5E02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{717225F0-812C-4A0E-A3A7-23FA6BFC4DD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{717225F0-812C-4A0E-A3A7-23FA6BFC4DD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{717225F0-812C-4A0E-A3A7-23FA6BFC4DD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{717225F0-812C-4A0E-A3A7-23FA6BFC4DD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
