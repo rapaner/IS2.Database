@@ -58,7 +58,6 @@ namespace IS2.Database.ConfigurationData.Model
 
         #endregion Методы изменения свойств
 
-
         #region Служебные методы
 
         public bool IsTransient()
