@@ -4,19 +4,18 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class AssignmentConfiguration : IEntityTypeConfiguration<Assignment>
+    class UserConfiguration : IEntityTypeConfiguration<User>
     {
-        public void Configure(EntityTypeBuilder<Assignment> entity)
+        public void Configure(EntityTypeBuilder<User> entity)
         {
-            entity.ToTable("Assignments");
+            entity.ToTable("Users");
 
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.AssignmentId).IsRequired();
-            entity.Property(e => e.ProcedureId).IsRequired();
-            entity.Property(e => e.RoleId).IsRequired();
             entity.Property(e => e.UserId).IsRequired();
-            entity.Property(e => e.DateStart).IsRequired();
-            entity.Property(e => e.DateFinish);
+            entity.Property(e => e.LastName).IsRequired();
+            entity.Property(e => e.FirstName).IsRequired();
+            entity.Property(e => e.MiddleName).IsRequired();
+            entity.Property(e => e.Email).IsRequired();
             entity.Property(e => e.VersionId).IsRequired();
             entity.Property(e => e.DateInsert).IsRequired();
             entity.Property(e => e.IsDeleted).IsRequired();

@@ -4,19 +4,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class AssignmentConfiguration : IEntityTypeConfiguration<Assignment>
+    class StageTypeConfiguration : IEntityTypeConfiguration<StageType>
     {
-        public void Configure(EntityTypeBuilder<Assignment> entity)
+        public void Configure(EntityTypeBuilder<StageType> entity)
         {
-            entity.ToTable("Assignments");
+            entity.ToTable(" StageTypes");
 
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.AssignmentId).IsRequired();
-            entity.Property(e => e.ProcedureId).IsRequired();
-            entity.Property(e => e.RoleId).IsRequired();
-            entity.Property(e => e.UserId).IsRequired();
-            entity.Property(e => e.DateStart).IsRequired();
-            entity.Property(e => e.DateFinish);
+            entity.Property(e => e.StageTypeId).IsRequired();
+            entity.Property(e => e.Name).IsRequired();
+            entity.Property(e => e.SpecificationTemplatePackageId).IsRequired();
             entity.Property(e => e.VersionId).IsRequired();
             entity.Property(e => e.DateInsert).IsRequired();
             entity.Property(e => e.IsDeleted).IsRequired();
