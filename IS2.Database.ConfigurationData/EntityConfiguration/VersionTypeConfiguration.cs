@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ConfigurationData.EntityConfiguration
 {
-    class VersionTypeConfiguration : IEntityTypeConfiguration<VersionType>
+    class VersionTypeConfiguration : IEntityTypeConfiguration<VersionTypeEntity>
     {
-        public void Configure(EntityTypeBuilder<VersionType> entity)
+        public void Configure(EntityTypeBuilder<VersionTypeEntity> entity)
         {
             entity.ToTable("VersionTypes");
             entity.HasKey(x => x.Id);

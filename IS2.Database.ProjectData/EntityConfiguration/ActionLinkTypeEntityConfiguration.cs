@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ProjectData.EntityConfiguration
 {
-    internal class ActionLinkTypeEntityConfiguration : IEntityTypeConfiguration<ActionLinkType>
+    internal class ActionLinkTypeEntityConfiguration : IEntityTypeConfiguration<ActionLinkTypeEntity>
     {
-        public void Configure(EntityTypeBuilder<ActionLinkType> entity)
+        public void Configure(EntityTypeBuilder<ActionLinkTypeEntity> entity)
         {
             entity.ToTable("ActionLinkTypes");
 

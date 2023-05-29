@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class ProcedureToModuleConfiguration : IEntityTypeConfiguration<ProcedureToModule>
+    class ProcedureToModuleConfiguration : IEntityTypeConfiguration<ProcedureToModuleEntity>
     {
-        public void Configure(EntityTypeBuilder<ProcedureToModule> entity)
+        public void Configure(EntityTypeBuilder<ProcedureToModuleEntity> entity)
         {
             entity.ToTable("ProcedureToModules");
 

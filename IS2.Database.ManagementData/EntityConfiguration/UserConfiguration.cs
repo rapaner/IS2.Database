@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class UserConfiguration : IEntityTypeConfiguration<User>
+    class UserConfiguration : IEntityTypeConfiguration<UserEntity>
     {
-        public void Configure(EntityTypeBuilder<User> entity)
+        public void Configure(EntityTypeBuilder<UserEntity> entity)
         {
             entity.ToTable("Users");
 

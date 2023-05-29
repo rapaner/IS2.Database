@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class SessionConfiguration : IEntityTypeConfiguration<Session>
+    class SessionConfiguration : IEntityTypeConfiguration<SessionEntity>
     {
-        public void Configure(EntityTypeBuilder<Session> entity)
+        public void Configure(EntityTypeBuilder<SessionEntity> entity)
         {
             entity.ToTable("Sessions");
 

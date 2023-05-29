@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ProjectData.EntityConfiguration
 {
-    internal class ActionFormalizationEntityConfiguration : IEntityTypeConfiguration<ActionFormalization>
+    internal class ActionFormalizationEntityConfiguration : IEntityTypeConfiguration<ActionFormalizationEntity>
     {
-        public void Configure(EntityTypeBuilder<ActionFormalization> entity)
+        public void Configure(EntityTypeBuilder<ActionFormalizationEntity> entity)
         {
             entity.ToTable("ActionFormalizations");
 

@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class ProjectConfiguration : IEntityTypeConfiguration<Project>
+    class ProjectConfiguration : IEntityTypeConfiguration<ProjectEntity>
     {
-        public void Configure(EntityTypeBuilder<Project> entity)
+        public void Configure(EntityTypeBuilder<ProjectEntity> entity)
         {
             entity.ToTable("Projects");
 

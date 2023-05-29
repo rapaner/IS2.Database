@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ConfigurationData.EntityConfiguration
 {
-    class BranchConfiguration : IEntityTypeConfiguration<Branch>
+    class BranchConfiguration : IEntityTypeConfiguration<BranchEntity>
     {
-        public void Configure(EntityTypeBuilder<Branch> entity)
+        public void Configure(EntityTypeBuilder<BranchEntity> entity)
         {
             entity.ToTable("Branches");
             entity.HasKey(e => e.BranchId);

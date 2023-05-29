@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ConfigurationData.EntityConfiguration
 {
-    class VersionConfiguration : IEntityTypeConfiguration<Model.Version>
+    class VersionConfiguration : IEntityTypeConfiguration<Model.VersionEntity>
     {
-        public void Configure(EntityTypeBuilder<Model.Version> entity)
+        public void Configure(EntityTypeBuilder<Model.VersionEntity> entity)
         {
             entity.ToTable("Versions");
 
@@ -15,7 +15,7 @@ namespace IS2.Database.ConfigurationData.EntityConfiguration
             entity.Property(e => e.VersionType)
                 .HasConversion(
                     v => v.Id,
-                    v => Enumeration.FromValue<VersionType>(v)
+                    v => Enumeration.FromValue<VersionTypeEntity>(v)
                 );
             entity.Property(e => e.PreviousVersionId);
             entity.Property(e => e.UserId)

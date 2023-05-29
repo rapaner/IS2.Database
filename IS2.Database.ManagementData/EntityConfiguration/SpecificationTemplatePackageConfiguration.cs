@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class SpecificationTemplatePackageConfiguration : IEntityTypeConfiguration<SpecificationTemplatePackage>
+    class SpecificationTemplatePackageConfiguration : IEntityTypeConfiguration<SpecificationTemplatePackageEntity>
     {
-        public void Configure(EntityTypeBuilder<SpecificationTemplatePackage> entity)
+        public void Configure(EntityTypeBuilder<SpecificationTemplatePackageEntity> entity)
         {
             entity.ToTable("SpecificationTemplatePackages");
 

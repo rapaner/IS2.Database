@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ProjectData.EntityConfiguration
 {
-    internal class ConceptElementEntityConfiguration : IEntityTypeConfiguration<ConceptElement>
+    internal class ConceptElementEntityConfiguration : IEntityTypeConfiguration<ConceptElementEntity>
     {
-        public void Configure(EntityTypeBuilder<ConceptElement> entity)
+        public void Configure(EntityTypeBuilder<ConceptElementEntity> entity)
         {
             entity.ToTable("ConceptElements");
 

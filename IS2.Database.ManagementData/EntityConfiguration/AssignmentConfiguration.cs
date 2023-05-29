@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class AssignmentConfiguration : IEntityTypeConfiguration<Assignment>
+    class AssignmentConfiguration : IEntityTypeConfiguration<AssignmentEntity>
     {
-        public void Configure(EntityTypeBuilder<Assignment> entity)
+        public void Configure(EntityTypeBuilder<AssignmentEntity> entity)
         {
             entity.ToTable("Assignments");
 

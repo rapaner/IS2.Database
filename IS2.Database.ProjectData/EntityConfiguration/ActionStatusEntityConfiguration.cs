@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ProjectData.EntityConfiguration
 {
-    internal class ActionStatusEntityConfiguration : IEntityTypeConfiguration<ActionStatus>
+    internal class ActionStatusEntityConfiguration : IEntityTypeConfiguration<ActionStatusEntity>
     {
-        public void Configure(EntityTypeBuilder<ActionStatus> entity)
+        public void Configure(EntityTypeBuilder<ActionStatusEntity> entity)
         {
             entity.ToTable("ActionStatuses");
 

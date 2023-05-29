@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class RoleConfiguration : IEntityTypeConfiguration<Role>
+    class RoleConfiguration : IEntityTypeConfiguration<RoleEntity>
     {
-        public void Configure(EntityTypeBuilder<Role> entity)
+        public void Configure(EntityTypeBuilder<RoleEntity> entity)
         {
             entity.ToTable("Roles");
 

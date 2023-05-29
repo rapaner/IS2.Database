@@ -12,11 +12,11 @@ namespace IS2.Database.ConfigurationData
     {
         private IDbContextTransaction _currentTransaction;
 
-        public virtual DbSet<Branch> Branches { get; set; }
-        public virtual DbSet<Setting> Settings { get; set; }
-        public virtual DbSet<UserSetting> UserSettings { get; set; }
-        public virtual DbSet<Model.Version> Versions { get; set; }
-        public virtual DbSet<VersionType> VersionTypes { get; set; }
+        public virtual DbSet<BranchEntity> Branches { get; set; }
+        public virtual DbSet<SettingEntity> Settings { get; set; }
+        public virtual DbSet<UserSettingEntity> UserSettings { get; set; }
+        public virtual DbSet<Model.VersionEntity> Versions { get; set; }
+        public virtual DbSet<VersionTypeEntity> VersionTypes { get; set; }
 
         public IDbContextTransaction GetCurrentTransaction() => _currentTransaction;
 
@@ -37,7 +37,7 @@ namespace IS2.Database.ConfigurationData
             modelBuilder.ApplyConfiguration(new VersionConfiguration());
             modelBuilder.ApplyConfiguration(new VersionTypeConfiguration());
 
-            modelBuilder.Entity<VersionType>().HasData(Enumeration.GetAll<VersionType>());
+            modelBuilder.Entity<VersionTypeEntity>().HasData(Enumeration.GetAll<VersionTypeEntity>());
         }
 
         /// <summary>

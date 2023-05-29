@@ -11,19 +11,19 @@ namespace IS2.Database.ManagementData
     {
         private IDbContextTransaction _currentTransaction;
 
-        public virtual DbSet<Assignment> Assignments { get; set; }
-        public virtual DbSet<Procedure> Procedures { get; set; }
-        public virtual DbSet<ProcedureAvailabilityType> ProcedureAvailabilityTypes { get; set; }
-        public virtual DbSet<ProcedureToModule> ProcedureToModules { get; set; }
-        public virtual DbSet<ProcedureType> ProcedureTypes { get; set; }
-        public virtual DbSet<Project> Projects { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<Session> Sessions { get; set; }
-        public virtual DbSet<SpecificationTemplatePackage> SpecificationTemplatePackages { get; set; }
-        public virtual DbSet<Stage> Stages { get; set; }
-        public virtual DbSet<StageType> StageTypes { get; set; }
+        public virtual DbSet<AssignmentEntity> Assignments { get; set; }
+        public virtual DbSet<ProcedureEntity> Procedures { get; set; }
+        public virtual DbSet<ProcedureAvailabilityTypeEntity> ProcedureAvailabilityTypes { get; set; }
+        public virtual DbSet<ProcedureToModuleEntity> ProcedureToModules { get; set; }
+        public virtual DbSet<ProcedureTypeEntity> ProcedureTypes { get; set; }
+        public virtual DbSet<ProjectEntity> Projects { get; set; }
+        public virtual DbSet<RoleEntity> Roles { get; set; }
+        public virtual DbSet<SessionEntity> Sessions { get; set; }
+        public virtual DbSet<SpecificationTemplatePackageEntity> SpecificationTemplatePackages { get; set; }
+        public virtual DbSet<StageEntity> Stages { get; set; }
+        public virtual DbSet<StageTypeEntity> StageTypes { get; set; }
         public virtual DbSet<TaskEntity> Tasks { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserEntity> Users { get; set; }
 
         public IDbContextTransaction GetCurrentTransaction() => _currentTransaction;
 

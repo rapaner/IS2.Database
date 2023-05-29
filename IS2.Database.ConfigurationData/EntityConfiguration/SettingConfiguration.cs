@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ConfigurationData.EntityConfiguration
 {
-    class SettingConfiguration : IEntityTypeConfiguration<Setting>
+    class SettingConfiguration : IEntityTypeConfiguration<SettingEntity>
     {
-        public void Configure(EntityTypeBuilder<Setting> entity)
+        public void Configure(EntityTypeBuilder<SettingEntity> entity)
         {
             entity.ToTable("Settings");
 

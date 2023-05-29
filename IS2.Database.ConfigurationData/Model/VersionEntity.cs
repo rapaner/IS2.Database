@@ -59,7 +59,7 @@
         /// <summary>
         /// Ветка
         /// </summary>
-        public Branch Branch { get; protected set; }
+        public BranchEntity Branch { get; protected set; }
 
         /// <summary>
         /// Идентификатор пользователя

@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class StageConfiguration : IEntityTypeConfiguration<Stage>
+    class StageConfiguration : IEntityTypeConfiguration<StageEntity>
     {
-        public void Configure(EntityTypeBuilder<Stage> entity)
+        public void Configure(EntityTypeBuilder<StageEntity> entity)
         {
             entity.ToTable("Stages");
 

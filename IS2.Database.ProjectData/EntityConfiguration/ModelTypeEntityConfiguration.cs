@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ProjectData.EntityConfiguration
 {
-    internal class ModelTypeEntityConfiguration : IEntityTypeConfiguration<ModelType>
+    internal class ModelTypeEntityConfiguration : IEntityTypeConfiguration<ModelTypeEntity>
     {
-        public void Configure(EntityTypeBuilder<ModelType> entity)
+        public void Configure(EntityTypeBuilder<ModelTypeEntity> entity)
         {
             entity.ToTable("ModelTypes");
 

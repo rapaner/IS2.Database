@@ -12,17 +12,17 @@ namespace IS2.Database.ProjectData
         private IDbContextTransaction _currentTransaction;
 
         public virtual DbSet<ActionEntity> Actions { get; set; }
-        public virtual DbSet<ActionFormalization> ActionFormalizations { get; set; }
-        public virtual DbSet<ActionLink> ActionLinks { get; set; }
-        public virtual DbSet<ActionLinkType>  ActionLinkTypes { get; set; }
-        public virtual DbSet<ActionStatus>  ActionStatuses{ get; set; }
-        public virtual DbSet<ActionType>  ActionTypes { get; set; }
-        public virtual DbSet<ConceptElement>  ConceptElements { get; set; }
-        public virtual DbSet<ConceptElementClass> ConceptElementClasses { get; set; }
-        public virtual DbSet<ConceptElementGroup> ConceptElementGroups { get; set; }
+        public virtual DbSet<ActionFormalizationEntity> ActionFormalizations { get; set; }
+        public virtual DbSet<ActionLinkEntity> ActionLinks { get; set; }
+        public virtual DbSet<ActionLinkTypeEntity>  ActionLinkTypes { get; set; }
+        public virtual DbSet<ActionStatusEntity>  ActionStatuses{ get; set; }
+        public virtual DbSet<ActionTypeEntity>  ActionTypes { get; set; }
+        public virtual DbSet<ConceptElementEntity>  ConceptElements { get; set; }
+        public virtual DbSet<ConceptElementClassEntity> ConceptElementClasses { get; set; }
+        public virtual DbSet<ConceptElementGroupEntity> ConceptElementGroups { get; set; }
         public virtual DbSet<ModelEntity> Models { get; set; }
-        public virtual DbSet<ModelStatus> ModelStatuses{ get; set; }
-        public virtual DbSet<ModelType> ModelTypes{ get; set; }
+        public virtual DbSet<ModelStatusEntity> ModelStatuses{ get; set; }
+        public virtual DbSet<ModelTypeEntity> ModelTypes{ get; set; }
 
         public IDbContextTransaction GetCurrentTransaction() => _currentTransaction;
 
