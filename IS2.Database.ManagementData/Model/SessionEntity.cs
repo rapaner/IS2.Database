@@ -1,6 +1,6 @@
 ﻿namespace IS2.Database.ManagementData.Model
 {
-    public class Session
+    public class SessionEntity
     {
         #region Конструкторы
 
@@ -11,7 +11,7 @@
         /// <param name="assignmentId">Идентификатор назначения</param>
         /// <param name="dateStart">Дата начала</param>
         /// <param name="dateFinish">Дата окончания</param>
-        public Session(Guid sessionId, Guid assignmentId, DateTime dateStart, DateTime? dateFinish)
+        public SessionEntity(Guid sessionId, Guid assignmentId, DateTime dateStart, DateTime? dateFinish)
         {
             SessionId = sessionId;
             AssignmentId = assignmentId;

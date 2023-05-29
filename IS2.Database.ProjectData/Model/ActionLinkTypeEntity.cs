@@ -5,7 +5,7 @@ namespace IS2.Database.ProjectData.Model
     /// <summary>
     /// Тип связи
     /// </summary>
-    public class ActionLinkType : VersioningEntity
+    public class ActionLinkTypeEntity : VersioningEntity
     {
         #region Конструкторы
 
@@ -18,7 +18,7 @@ namespace IS2.Database.ProjectData.Model
         /// <param name="versionId">Идентификатор версии</param>
         /// <param name="dateInsert">Дата вставки записи</param>
         /// <param name="isDeleted">Удалена?</param>
-        public ActionLinkType(Guid id, short actionLinkTypeId, string name, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public ActionLinkTypeEntity(Guid id, short actionLinkTypeId, string name, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
         {
             ActionLinkTypeId = actionLinkTypeId;
             Name = name;

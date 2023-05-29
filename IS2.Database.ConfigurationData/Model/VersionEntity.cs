@@ -3,7 +3,7 @@
     /// <summary>
     /// Версия
     /// </summary>
-    public class Version
+    public class VersionEntity
     {
         #region Поля
 
@@ -22,7 +22,7 @@
         /// <param name="versionDate">Дата версии</param>
         /// <param name="name">Название версии</param>
         /// <param name="comment">Комментарий</param>
-        public Version(Guid versionId, VersionType versionType, Guid? previousVersionId, Guid branchId, Guid userId, DateTime versionDate, string name, string comment)
+        public VersionEntity(Guid versionId, VersionTypeEntity versionType, Guid? previousVersionId, Guid branchId, Guid userId, DateTime versionDate, string name, string comment)
         {
             VersionId = versionId;
             VersionType = versionType;
@@ -44,7 +44,7 @@
         /// <summary>
         /// Тип версии
         /// </summary>
-        public VersionType VersionType { get; protected set; }
+        public VersionTypeEntity VersionType { get; protected set; }
 
         /// <summary>
         /// Идентификатор предыдущей версии
@@ -89,7 +89,7 @@
         /// Установить тип версии
         /// </summary>
         /// <param name="versionTypeId">Идентификатор типа версии</param>
-        public void SetVersionTypeId(VersionType versionType)
+        public void SetVersionTypeId(VersionTypeEntity versionType)
         {
             VersionType = versionType;
         }
@@ -159,7 +159,7 @@
 
         public override bool Equals(object obj)
         {
-            if (obj == null || !(obj is Version))
+            if (obj == null || !(obj is VersionEntity))
                 return false;
 
             if (ReferenceEquals(this, obj))
@@ -168,7 +168,7 @@
             if (GetType() != obj.GetType())
                 return false;
 
-            Version item = (Version)obj;
+            VersionEntity item = (VersionEntity)obj;
 
             if (item.IsTransient() || IsTransient())
                 return false;
@@ -196,7 +196,7 @@
                 return base.GetHashCode();
         }
 
-        public static bool operator ==(Version left, Version right)
+        public static bool operator ==(VersionEntity left, VersionEntity right)
         {
             if (Equals(left, null))
                 return (Equals(right, null)) ? true : false;
@@ -204,7 +204,7 @@
                 return left.Equals(right);
         }
 
-        public static bool operator !=(Version left, Version right)
+        public static bool operator !=(VersionEntity left, VersionEntity right)
         {
             return !(left == right);
         }

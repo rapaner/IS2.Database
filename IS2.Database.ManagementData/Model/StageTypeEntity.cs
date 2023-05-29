@@ -5,7 +5,7 @@ namespace IS2.Database.ManagementData.Model
     /// <summary>
     /// Тип этапа
     /// </summary>
-    public class StageType : VersioningEntity
+    public class StageTypeEntity : VersioningEntity
     {
         #region Конструктор
 
@@ -19,7 +19,7 @@ namespace IS2.Database.ManagementData.Model
         /// <param name="versionId">Идентификатор версии</param>
         /// <param name="dateInsert">Дата вставки записи</param>
         /// <param name="isDeleted">Удалена?</param>
-        public StageType(Guid id, Guid stageTypeId, string name, Guid specificationTemplatePackageId, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public StageTypeEntity(Guid id, Guid stageTypeId, string name, Guid specificationTemplatePackageId, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
         {
             StageTypeId = stageTypeId;
             Name = name;

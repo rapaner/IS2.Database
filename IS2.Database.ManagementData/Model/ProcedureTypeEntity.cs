@@ -5,7 +5,7 @@ namespace IS2.Database.ManagementData.Model
     /// <summary>
     /// Тип процедуры
     /// </summary>
-    public class ProcedureType : VersioningEntity
+    public class ProcedureTypeEntity : VersioningEntity
     {
         #region Конструктор
 
@@ -18,7 +18,7 @@ namespace IS2.Database.ManagementData.Model
         /// <param name="versionId">Идентификатор версии</param>
         /// <param name="dateInsert">Дата вставки записи</param>
         /// <param name="isDeleted">Удалена?</param>
-        public ProcedureType(Guid id, Guid procedureTypeId, string name, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public ProcedureTypeEntity(Guid id, Guid procedureTypeId, string name, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
         {
             ProcedureTypeId = procedureTypeId;
             Name = name;

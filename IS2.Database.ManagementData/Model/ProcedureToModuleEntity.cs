@@ -5,7 +5,7 @@ namespace IS2.Database.ManagementData.Model
     /// <summary>
     /// Взаимосвязь процедуры и модуля
     /// </summary>
-    public class ProcedureToModule : VersioningEntity
+    public class ProcedureToModuleEntity : VersioningEntity
     {
         #region Конструкторы
 
@@ -19,7 +19,7 @@ namespace IS2.Database.ManagementData.Model
         /// <param name="versionId">Идентификатор версии</param>
         /// <param name="dateInsert">Дата вставки записи</param>
         /// <param name="isDeleted">Удалена?</param>
-        public ProcedureToModule(Guid id, Guid procedureId, Guid moduleId, Guid procedureAvailabilityTypeId, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public ProcedureToModuleEntity(Guid id, Guid procedureId, Guid moduleId, Guid procedureAvailabilityTypeId, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
         {
             ProcedureId = procedureId;
             ModuleId = moduleId;

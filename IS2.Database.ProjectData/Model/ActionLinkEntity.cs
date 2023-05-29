@@ -5,7 +5,7 @@ namespace IS2.Database.ProjectData.Model
     /// <summary>
     /// Связь между действиями
     /// </summary>
-    public class ActionLink : VersioningEntity
+    public class ActionLinkEntity : VersioningEntity
     {
         #region Конструкторы
 
@@ -22,7 +22,7 @@ namespace IS2.Database.ProjectData.Model
         /// <param name="versionId">Идентификатор версии</param>
         /// <param name="dateInsert">Дата вставки записи</param>
         /// <param name="isDeleted">Удалена?</param>
-        public ActionLink(Guid id, Guid actionLinkId, Guid modelId, Guid linkTypeId, Guid actionId1, Guid actionId2, Guid? actionId3, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public ActionLinkEntity(Guid id, Guid actionLinkId, Guid modelId, Guid linkTypeId, Guid actionId1, Guid actionId2, Guid? actionId3, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
         {
             ActionLinkId = actionLinkId;
             ModelId = modelId;

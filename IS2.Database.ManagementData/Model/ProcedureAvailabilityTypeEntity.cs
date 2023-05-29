@@ -5,7 +5,7 @@ namespace IS2.Database.ManagementData.Model
     /// <summary>
     /// Тип доступности процедуры
     /// </summary>
-    public class ProcedureAvailabilityType : VersioningEntity
+    public class ProcedureAvailabilityTypeEntity : VersioningEntity
     {
         #region Конструктор
 
@@ -18,7 +18,7 @@ namespace IS2.Database.ManagementData.Model
         /// <param name="versionId">Идентификатор версии</param>
         /// <param name="dateInsert">Дата вставки записи</param>
         /// <param name="isDeleted">Удалена?</param>
-        public ProcedureAvailabilityType(Guid id, Guid procedureAvailabilityTypeId, string name, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public ProcedureAvailabilityTypeEntity(Guid id, Guid procedureAvailabilityTypeId, string name, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
         {
             ProcedureAvailabilityTypeId = procedureAvailabilityTypeId;
             Name = name;

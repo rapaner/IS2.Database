@@ -5,7 +5,7 @@ namespace IS2.Database.ManagementData.Model
     /// <summary>
     /// Набор шаблонов спецификаций
     /// </summary>
-    public class SpecificationTemplatePackage : VersioningEntity
+    public class SpecificationTemplatePackageEntity : VersioningEntity
     {
         #region Конструктор
 
@@ -19,7 +19,7 @@ namespace IS2.Database.ManagementData.Model
         /// <param name="versionId">Идентификатор версии</param>
         /// <param name="dateInsert">Дата вставки</param>
         /// <param name="isDeleted">Удалена?</param>
-        public SpecificationTemplatePackage(Guid id, Guid specificationTemplatePackageId, string name, string tableName, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public SpecificationTemplatePackageEntity(Guid id, Guid specificationTemplatePackageId, string name, string tableName, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
         {
             SpecificationTemplatePackageId = specificationTemplatePackageId;
             Name = name;

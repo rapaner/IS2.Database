@@ -5,7 +5,7 @@ namespace IS2.Database.ProjectData.Model
     /// <summary>
     /// Группа элемента концептуальной структуры
     /// </summary>
-    public class ConceptElementGroup : VersioningEntity
+    public class ConceptElementGroupEntity : VersioningEntity
     {
         #region Конструкторы
 
@@ -18,7 +18,7 @@ namespace IS2.Database.ProjectData.Model
         /// <param name="versionId">Идентификатор версии</param>
         /// <param name="dateInsert">Дата вставки записи</param>
         /// <param name="isDeleted">Удалена?</param>
-        public ConceptElementGroup(Guid id, short conceptElementGroupId, string name, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public ConceptElementGroupEntity(Guid id, short conceptElementGroupId, string name, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
         {
             ConceptElementGroupId = conceptElementGroupId;
             Name = name;

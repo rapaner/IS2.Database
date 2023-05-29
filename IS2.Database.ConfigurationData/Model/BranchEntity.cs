@@ -3,7 +3,7 @@
     /// <summary>
     /// Ветка
     /// </summary>
-    public class Branch
+    public class BranchEntity
     {
         #region Поля
 
@@ -26,7 +26,7 @@
         /// <summary>
         /// Версии
         /// </summary>
-        public List<Version> Versions { get; } = new();
+        public List<VersionEntity> Versions { get; } = new();
 
         /// <summary>
         /// Удалена?
@@ -66,7 +66,7 @@
 
         public override bool Equals(object obj)
         {
-            if (obj == null || !(obj is Branch))
+            if (obj == null || !(obj is BranchEntity))
                 return false;
 
             if (ReferenceEquals(this, obj))
@@ -75,7 +75,7 @@
             if (GetType() != obj.GetType())
                 return false;
 
-            Branch item = (Branch)obj;
+            BranchEntity item = (BranchEntity)obj;
 
             if (item.IsTransient() || IsTransient())
                 return false;
@@ -98,7 +98,7 @@
                 return base.GetHashCode();
         }
 
-        public static bool operator ==(Branch left, Branch right)
+        public static bool operator ==(BranchEntity left, BranchEntity right)
         {
             if (Equals(left, null))
                 return (Equals(right, null)) ? true : false;
@@ -106,7 +106,7 @@
                 return left.Equals(right);
         }
 
-        public static bool operator !=(Branch left, Branch right)
+        public static bool operator !=(BranchEntity left, BranchEntity right)
         {
             return !(left == right);
         }

@@ -5,7 +5,7 @@ namespace IS2.Database.ProjectData.Model
     /// <summary>
     /// Тип статуса
     /// </summary>
-    public class ActionStatus : VersioningEntity
+    public class ActionStatusEntity : VersioningEntity
     {
         #region Конструкторы
 
@@ -18,7 +18,7 @@ namespace IS2.Database.ProjectData.Model
         /// <param name="versionId">Идентификатор версии</param>
         /// <param name="dateInsert">Дата вставки записи</param>
         /// <param name="isDeleted">Удалена?</param>
-        public ActionStatus(Guid id, short actionStatusId, string name, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public ActionStatusEntity(Guid id, short actionStatusId, string name, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
         {
             ActionStatusId = actionStatusId;
             Name = name;

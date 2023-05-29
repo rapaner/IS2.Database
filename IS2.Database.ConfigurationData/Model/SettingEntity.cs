@@ -5,7 +5,7 @@ namespace IS2.Database.ConfigurationData.Model
     /// <summary>
     /// Настройки
     /// </summary>
-    public class Setting : VersioningEntity
+    public class SettingEntity : VersioningEntity
     {
         /// <summary>
         /// Конструктор
@@ -16,7 +16,7 @@ namespace IS2.Database.ConfigurationData.Model
         /// <param name="versionId">Идентификатор версии</param>
         /// <param name="dateInsert">Дата вставки записи</param>
         /// <param name="isDeleted">Удалена?</param>
-        public Setting(Guid id, Guid settingId, string name, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public SettingEntity(Guid id, Guid settingId, string name, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
         {
             SettingId = settingId;
             Name = name;
@@ -67,7 +67,7 @@ namespace IS2.Database.ConfigurationData.Model
 
         public override bool Equals(object obj)
         {
-            if (obj == null || !(obj is Setting))
+            if (obj == null || !(obj is SettingEntity))
                 return false;
 
             if (ReferenceEquals(this, obj))
@@ -76,7 +76,7 @@ namespace IS2.Database.ConfigurationData.Model
             if (GetType() != obj.GetType())
                 return false;
 
-            Setting item = (Setting)obj;
+            SettingEntity item = (SettingEntity)obj;
 
             if (item.IsTransient() || IsTransient())
                 return false;
@@ -98,7 +98,7 @@ namespace IS2.Database.ConfigurationData.Model
                 return base.GetHashCode();
         }
 
-        public static bool operator ==(Setting left, Setting right)
+        public static bool operator ==(SettingEntity left, SettingEntity right)
         {
             if (Equals(left, null))
                 return (Equals(right, null)) ? true : false;
@@ -106,7 +106,7 @@ namespace IS2.Database.ConfigurationData.Model
                 return left.Equals(right);
         }
 
-        public static bool operator !=(Setting left, Setting right)
+        public static bool operator !=(SettingEntity left, SettingEntity right)
         {
             return !(left == right);
         }

@@ -5,7 +5,7 @@ namespace IS2.Database.ManagementData.Model
     /// <summary>
     /// Процедура
     /// </summary>
-    public class Procedure : VersioningEntity
+    public class ProcedureEntity : VersioningEntity
     {
         #region Конструктор
 
@@ -24,7 +24,7 @@ namespace IS2.Database.ManagementData.Model
         /// <param name="versionId">Идентификатор версии</param>
         /// <param name="dateInsert">Дата вставки записи</param>
         /// <param name="isDeleted">Удалена?</param>
-        public Procedure(Guid id, Guid procedureId, Guid procedureTypeId, Guid stageId, short statusId, DateTime dateStartPlan, DateTime dateFinishPlan, DateTime? dateStartFact, DateTime? dateFinishFact, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public ProcedureEntity(Guid id, Guid procedureId, Guid procedureTypeId, Guid stageId, short statusId, DateTime dateStartPlan, DateTime dateFinishPlan, DateTime? dateStartFact, DateTime? dateFinishFact, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
         {
             ProcedureId = procedureId;
             ProcedureTypeId = procedureTypeId;

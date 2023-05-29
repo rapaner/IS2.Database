@@ -2,7 +2,7 @@
 
 namespace IS2.Database.ManagementData.Model
 {
-    public class User : VersioningEntity
+    public class UserEntity : VersioningEntity
     {
         #region Конструктор
 
@@ -18,7 +18,7 @@ namespace IS2.Database.ManagementData.Model
         /// <param name="versionId">Идентификатор версии</param>
         /// <param name="dateInsert">Дата вставки записи</param>
         /// <param name="isDeleted">Удалена?</param>
-        public User(Guid id, Guid userId, string lastName, string firstName, string middleName, string email, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public UserEntity(Guid id, Guid userId, string lastName, string firstName, string middleName, string email, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
         {
             UserId = userId;
             LastName = lastName;

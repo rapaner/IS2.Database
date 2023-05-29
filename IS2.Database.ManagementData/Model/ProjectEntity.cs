@@ -5,7 +5,7 @@ namespace IS2.Database.ManagementData.Model
     /// <summary>
     /// Проект
     /// </summary>
-    public class Project : VersioningEntity
+    public class ProjectEntity : VersioningEntity
     {
         #region Конструкторы
 
@@ -23,7 +23,7 @@ namespace IS2.Database.ManagementData.Model
         /// <param name="versionId">Идентификатор версии</param>
         /// <param name="dateInsert">Дата вставки записи</param>
         /// <param name="isDeleted">Удалена?</param>
-        public Project(Guid id, Guid projectId, string name, short statusId, DateTime dateStartPlan, DateTime dateFinishPlan, DateTime? dateStartFact, DateTime? dateFinishFact, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public ProjectEntity(Guid id, Guid projectId, string name, short statusId, DateTime dateStartPlan, DateTime dateFinishPlan, DateTime? dateStartFact, DateTime? dateFinishFact, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
         {
             ProjectId = projectId;
             Name = name;
@@ -84,7 +84,7 @@ namespace IS2.Database.ManagementData.Model
 
         public override bool Equals(object obj)
         {
-            if (obj == null || !(obj is Project))
+            if (obj == null || !(obj is ProjectEntity))
                 return false;
 
             if (ReferenceEquals(this, obj))
@@ -93,7 +93,7 @@ namespace IS2.Database.ManagementData.Model
             if (GetType() != obj.GetType())
                 return false;
 
-            Project item = (Project)obj;
+            ProjectEntity item = (ProjectEntity)obj;
 
             if (item.IsTransient() || IsTransient())
                 return false;
@@ -120,7 +120,7 @@ namespace IS2.Database.ManagementData.Model
                 return base.GetHashCode();
         }
 
-        public static bool operator ==(Project left, Project right)
+        public static bool operator ==(ProjectEntity left, ProjectEntity right)
         {
             if (Equals(left, null))
                 return (Equals(right, null)) ? true : false;
@@ -128,7 +128,7 @@ namespace IS2.Database.ManagementData.Model
                 return left.Equals(right);
         }
 
-        public static bool operator !=(Project left, Project right)
+        public static bool operator !=(ProjectEntity left, ProjectEntity right)
         {
             return !(left == right);
         }

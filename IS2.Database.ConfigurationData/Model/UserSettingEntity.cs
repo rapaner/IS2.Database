@@ -5,7 +5,7 @@ namespace IS2.Database.ConfigurationData.Model
     /// <summary>
     /// Настройка пользователя
     /// </summary>
-    public class UserSetting : VersioningEntity
+    public class UserSettingEntity : VersioningEntity
     {
         /// <summary>
         /// Конструктор
@@ -18,7 +18,7 @@ namespace IS2.Database.ConfigurationData.Model
         /// <param name="versionId">Идентификатор версии</param>
         /// <param name="dateInsert">Дата вставки записи</param>
         /// <param name="isDeleted">Удалена?</param>
-        public UserSetting(Guid id, Guid userSettingId, Guid settingId, Guid userId, string value, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public UserSettingEntity(Guid id, Guid userSettingId, Guid settingId, Guid userId, string value, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
         {
             UserSettingId = userSettingId;
             SettingId = settingId;
@@ -59,7 +59,7 @@ namespace IS2.Database.ConfigurationData.Model
 
         public override bool Equals(object obj)
         {
-            if (obj == null || !(obj is UserSetting))
+            if (obj == null || !(obj is UserSettingEntity))
                 return false;
 
             if (ReferenceEquals(this, obj))
@@ -68,7 +68,7 @@ namespace IS2.Database.ConfigurationData.Model
             if (GetType() != obj.GetType())
                 return false;
 
-            UserSetting item = (UserSetting)obj;
+            UserSettingEntity item = (UserSettingEntity)obj;
 
             if (item.IsTransient() || IsTransient())
                 return false;
@@ -92,7 +92,7 @@ namespace IS2.Database.ConfigurationData.Model
                 return base.GetHashCode();
         }
 
-        public static bool operator ==(UserSetting left, UserSetting right)
+        public static bool operator ==(UserSettingEntity left, UserSettingEntity right)
         {
             if (Equals(left, null))
                 return (Equals(right, null)) ? true : false;
@@ -100,7 +100,7 @@ namespace IS2.Database.ConfigurationData.Model
                 return left.Equals(right);
         }
 
-        public static bool operator !=(UserSetting left, UserSetting right)
+        public static bool operator !=(UserSettingEntity left, UserSettingEntity right)
         {
             return !(left == right);
         }
