@@ -14,7 +14,6 @@
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="versionId">Идентификатор версии</param>
         /// <param name="versionType">Тип версии</param>
         /// <param name="previousVersionId">Идентификатор предыдущей версии</param>
         /// <param name="branchId">Идентификатор ветки</param>
@@ -22,9 +21,8 @@
         /// <param name="versionDate">Дата версии</param>
         /// <param name="name">Название версии</param>
         /// <param name="comment">Комментарий</param>
-        public VersionEntity(Guid versionId, VersionTypeEntity versionType, Guid? previousVersionId, Guid branchId, Guid userId, DateTime versionDate, string name, string comment)
+        public VersionEntity(VersionTypeEntity versionType, Guid? previousVersionId, Guid branchId, Guid userId, DateTime versionDate, string name, string comment)
         {
-            VersionId = versionId;
             VersionType = versionType;
             PreviousVersionId = previousVersionId;
             BranchId = branchId;
