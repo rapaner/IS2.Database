@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace IS2.Database.ConfigurationData.Migrations
 {
     [DbContext(typeof(ConfigurationDataContext))]
-    [Migration("20230524094301_Initial")]
+    [Migration("20230607154316_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace IS2.Database.ConfigurationData.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("IS2.Database.ConfigurationData.Model.Branch", b =>
+            modelBuilder.Entity("IS2.Database.ConfigurationData.Model.BranchEntity", b =>
                 {
                     b.Property<Guid>("BranchId")
                         .ValueGeneratedOnAdd()
@@ -43,7 +43,7 @@ namespace IS2.Database.ConfigurationData.Migrations
                     b.ToTable("Branches", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ConfigurationData.Model.Setting", b =>
+            modelBuilder.Entity("IS2.Database.ConfigurationData.Model.SettingEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -62,6 +62,7 @@ namespace IS2.Database.ConfigurationData.Migrations
                         .HasColumnType("text");
 
                     b.Property<Guid>("SettingId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("VersionId")
@@ -76,7 +77,7 @@ namespace IS2.Database.ConfigurationData.Migrations
                     b.ToTable("Settings", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ConfigurationData.Model.UserSetting", b =>
+            modelBuilder.Entity("IS2.Database.ConfigurationData.Model.UserSettingEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -95,6 +96,7 @@ namespace IS2.Database.ConfigurationData.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("UserSettingId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("Value")
@@ -113,7 +115,7 @@ namespace IS2.Database.ConfigurationData.Migrations
                     b.ToTable("UserSettings", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ConfigurationData.Model.Version", b =>
+            modelBuilder.Entity("IS2.Database.ConfigurationData.Model.VersionEntity", b =>
                 {
                     b.Property<Guid>("VersionId")
                         .ValueGeneratedOnAdd()
@@ -148,7 +150,7 @@ namespace IS2.Database.ConfigurationData.Migrations
                     b.ToTable("Versions", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ConfigurationData.Model.VersionType", b =>
+            modelBuilder.Entity("IS2.Database.ConfigurationData.Model.VersionTypeEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -177,9 +179,9 @@ namespace IS2.Database.ConfigurationData.Migrations
                         });
                 });
 
-            modelBuilder.Entity("IS2.Database.ConfigurationData.Model.Version", b =>
+            modelBuilder.Entity("IS2.Database.ConfigurationData.Model.VersionEntity", b =>
                 {
-                    b.HasOne("IS2.Database.ConfigurationData.Model.Branch", "Branch")
+                    b.HasOne("IS2.Database.ConfigurationData.Model.BranchEntity", "Branch")
                         .WithMany("Versions")
                         .HasForeignKey("BranchId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -188,7 +190,7 @@ namespace IS2.Database.ConfigurationData.Migrations
                     b.Navigation("Branch");
                 });
 
-            modelBuilder.Entity("IS2.Database.ConfigurationData.Model.Branch", b =>
+            modelBuilder.Entity("IS2.Database.ConfigurationData.Model.BranchEntity", b =>
                 {
                     b.Navigation("Versions");
                 });

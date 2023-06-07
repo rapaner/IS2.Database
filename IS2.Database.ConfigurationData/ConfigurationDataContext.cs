@@ -15,7 +15,7 @@ namespace IS2.Database.ConfigurationData
         public virtual DbSet<BranchEntity> Branches { get; set; }
         public virtual DbSet<SettingEntity> Settings { get; set; }
         public virtual DbSet<UserSettingEntity> UserSettings { get; set; }
-        public virtual DbSet<Model.VersionEntity> Versions { get; set; }
+        public virtual DbSet<VersionEntity> Versions { get; set; }
         public virtual DbSet<VersionTypeEntity> VersionTypes { get; set; }
 
         public IDbContextTransaction GetCurrentTransaction() => _currentTransaction;

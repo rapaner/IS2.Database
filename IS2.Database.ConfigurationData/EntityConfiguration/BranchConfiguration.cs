@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ConfigurationData.EntityConfiguration
 {
-    class BranchConfiguration : IEntityTypeConfiguration<BranchEntity>
+    internal class BranchConfiguration : IEntityTypeConfiguration<BranchEntity>
     {
         public void Configure(EntityTypeBuilder<BranchEntity> entity)
         {

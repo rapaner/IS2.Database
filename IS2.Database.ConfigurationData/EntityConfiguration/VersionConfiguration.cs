@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ConfigurationData.EntityConfiguration
 {
-    class VersionConfiguration : IEntityTypeConfiguration<Model.VersionEntity>
+    internal class VersionConfiguration : IEntityTypeConfiguration<VersionEntity>
     {
-        public void Configure(EntityTypeBuilder<Model.VersionEntity> entity)
+        public void Configure(EntityTypeBuilder<VersionEntity> entity)
         {
             entity.ToTable("Versions");
 

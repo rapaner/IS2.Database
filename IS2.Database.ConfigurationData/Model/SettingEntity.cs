@@ -16,9 +16,8 @@ namespace IS2.Database.ConfigurationData.Model
         /// <param name="versionId">Идентификатор версии</param>
         /// <param name="dateInsert">Дата вставки записи</param>
         /// <param name="isDeleted">Удалена?</param>
-        public SettingEntity(Guid id, Guid settingId, string name, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public SettingEntity(string name, Guid versionId) : base(versionId)
         {
-            SettingId = settingId;
             Name = name;
         }
 

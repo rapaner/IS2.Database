@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ConfigurationData.EntityConfiguration
 {
-    class VersionTypeConfiguration : IEntityTypeConfiguration<VersionTypeEntity>
+    internal class VersionTypeConfiguration : IEntityTypeConfiguration<VersionTypeEntity>
     {
         public void Configure(EntityTypeBuilder<VersionTypeEntity> entity)
         {

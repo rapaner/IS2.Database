@@ -10,17 +10,12 @@ namespace IS2.Database.ConfigurationData.Model
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="id">Идентификатор строки</param>
-        /// <param name="userSettingId">Идентификатор</param>
         /// <param name="settingId">Идентификатор настройки</param>
         /// <param name="userId">Идентификатор пользователя</param>
         /// <param name="value">Значение</param>
         /// <param name="versionId">Идентификатор версии</param>
-        /// <param name="dateInsert">Дата вставки записи</param>
-        /// <param name="isDeleted">Удалена?</param>
-        public UserSettingEntity(Guid id, Guid userSettingId, Guid settingId, Guid userId, string value, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public UserSettingEntity(Guid settingId, Guid userId, string value, Guid versionId) : base(versionId)
         {
-            UserSettingId = userSettingId;
             SettingId = settingId;
             UserId = userId;
             Value = value;

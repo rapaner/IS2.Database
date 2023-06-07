@@ -12,7 +12,8 @@ namespace IS2.Database.ConfigurationData.EntityConfiguration
 
             entity.HasKey(e => e.Id);
             entity.Property(e => e.UserSettingId)
-                .IsRequired();
+                .IsRequired()
+                .ValueGeneratedOnAdd();
             entity.HasIndex(e => e.UserSettingId);
             entity.Property(e => e.SettingId)
                 .IsRequired();

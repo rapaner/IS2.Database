@@ -1,10 +1,5 @@
 ﻿using IS2.Database.Common.Contexts;
 using IS2.Database.ConfigurationData.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IS2.Database.ConfigurationData.Repositories
 {

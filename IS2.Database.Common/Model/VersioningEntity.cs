@@ -14,6 +14,16 @@
         /// <summary>
         /// Конструктор
         /// </summary>
+        /// <param name="versionId">Идентификатор версии</param>
+        protected VersioningEntity(Guid versionId)
+        {
+            VersionId = versionId;
+            DateInsert = DateTime.Now;
+        }
+
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         /// <param name="id">Идентификатор строки</param>
         /// <param name="versionId">Идентификатор версии</param>
         /// <param name="dateInsert">Дата вставки записи</param>
