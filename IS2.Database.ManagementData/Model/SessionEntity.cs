@@ -7,19 +7,32 @@
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="sessionId">Идентификатор сессии</param>
         /// <param name="assignmentId">Идентификатор назначения</param>
         /// <param name="dateStart">Дата начала</param>
         /// <param name="dateFinish">Дата окончания</param>
-        public SessionEntity(Guid sessionId, Guid assignmentId, DateTime dateStart, DateTime? dateFinish)
+        public SessionEntity(Guid assignmentId, DateTime dateStart, DateTime? dateFinish)
         {
-            SessionId = sessionId;
             AssignmentId = assignmentId;
             DateStart = dateStart;
             DateFinish = dateFinish;
         }
 
         #endregion Конструкторы
+
+        #region Методы
+
+        /// <summary>
+        /// Новый объект
+        /// </summary>
+        /// <param name="assignmentId">Идентификатор назначения</param>
+        /// <param name="dateStart">Дата начала</param>
+        /// <param name="dateFinish">Дата окончания</param>
+        public static SessionEntity New(Guid assignmentId, DateTime dateStart, DateTime? dateFinish)
+        {
+            return new SessionEntity(assignmentId, dateStart, dateFinish);
+        }
+
+        #endregion Методы
 
         #region Свойства
 
@@ -44,5 +57,14 @@
         public DateTime? DateFinish { get; protected set; }
 
         #endregion Свойства
+
+        #region Служебные методы
+
+        public bool IsTransient()
+        {
+            return SessionId == default;
+        }
+
+        #endregion Служебные методы
     }
 }

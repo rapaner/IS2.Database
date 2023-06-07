@@ -12,7 +12,6 @@ namespace IS2.Database.ManagementData.Model
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="id">Идентификатор</param>
         /// <param name="stageId">Идентификатор этапа</param>
         /// <param name="stageTypeId">Идентификатор типа этапа</param>
         /// <param name="taskId">Идентификатор задачи</param>
@@ -22,9 +21,7 @@ namespace IS2.Database.ManagementData.Model
         /// <param name="dateStartFact">Фактический срок начала</param>
         /// <param name="dateFinishFact">Фактический срок окончания</param>
         /// <param name="versionId">Идентификатор версии</param>
-        /// <param name="dateInsert">Дата вставки записи</param>
-        /// <param name="isDeleted">Удалена?</param>
-        public StageEntity(Guid id, Guid stageId, Guid stageTypeId, Guid taskId, short statusId, DateTime dateStartPlan, DateTime dateFinishPlan, DateTime? dateStartFact, DateTime? dateFinishFact, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public StageEntity(Guid stageId, Guid stageTypeId, Guid taskId, short statusId, DateTime dateStartPlan, DateTime dateFinishPlan, DateTime? dateStartFact, DateTime? dateFinishFact, Guid versionId) : base(versionId)
         {
             StageId = stageId;
             StageTypeId = stageTypeId;
@@ -37,6 +34,37 @@ namespace IS2.Database.ManagementData.Model
         }
 
         #endregion Конструктор
+
+        #region Методы
+
+        /// <summary>
+        /// Новый объект
+        /// </summary>
+        /// <param name="stageTypeId">Идентификатор типа этапа</param>
+        /// <param name="taskId">Идентификатор задачи</param>
+        /// <param name="statusId">Код статуса</param>
+        /// <param name="dateStartPlan">Плановый срок начала</param>
+        /// <param name="dateFinishPlan">Плановый срок окончания</param>
+        /// <param name="dateStartFact">Фактический срок начала</param>
+        /// <param name="dateFinishFact">Фактический срок окончания</param>
+        /// <param name="versionId">Идентификатор версии</param>
+        public static StageEntity New(Guid stageTypeId, Guid taskId, short statusId, DateTime dateStartPlan, DateTime dateFinishPlan, DateTime? dateStartFact, DateTime? dateFinishFact, Guid versionId)
+        {
+            return new StageEntity(default, stageTypeId, taskId, statusId, dateStartPlan, dateFinishPlan, dateStartFact, dateFinishFact, versionId);
+        }
+
+        /// <summary>
+        /// Новый объект с другим идентификатором версии
+        /// </summary>
+        /// <param name="entity">Сущность</param>
+        /// <param name="versionId">Новая версия</param>
+        public static StageEntity NewFromExisting(StageEntity entity, Guid versionId)
+        {
+            var newEntity = new StageEntity(entity.StageId, entity.StageTypeId, entity.TaskId, entity.StatusId, entity.DateStartPlan, entity.DateFinishPlan, entity.DateStartFact, entity.DateFinishFact, versionId);
+            return newEntity;
+        }
+
+        #endregion Методы
 
         #region Свойства
 

@@ -4,14 +4,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class AssignmentConfiguration : IEntityTypeConfiguration<AssignmentEntity>
+    internal class AssignmentConfiguration : IEntityTypeConfiguration<AssignmentEntity>
     {
         public void Configure(EntityTypeBuilder<AssignmentEntity> entity)
         {
             entity.ToTable("Assignments");
 
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.AssignmentId).IsRequired();
+            entity.Property(e => e.AssignmentId)
+                .IsRequired()
+                .ValueGeneratedOnAdd();
             entity.Property(e => e.ProcedureId).IsRequired();
             entity.Property(e => e.RoleId).IsRequired();
             entity.Property(e => e.UserId).IsRequired();

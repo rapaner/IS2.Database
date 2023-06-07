@@ -12,7 +12,6 @@ namespace IS2.Database.ProjectData.Model
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="id">Идентификатор строки</param>
         /// <param name="conceptElementId">Идентификатор элемента концептуальной структуры</param>
         /// <param name="modelId">Идентификатор модели</param>
         /// <param name="name">Название</param>
@@ -21,9 +20,7 @@ namespace IS2.Database.ProjectData.Model
         /// <param name="number">Номер</param>
         /// <param name="isAutoRange">Автонумерация</param>
         /// <param name="versionId">Идентификатор версии</param>
-        /// <param name="dateInsert">Дата вставки записи</param>
-        /// <param name="isDeleted">Удалена?</param>
-        public ConceptElementEntity(Guid id, Guid conceptElementId, Guid modelId, string name, Guid conceptElementClassId, Guid conceptElementGroupId, int number, bool isAutoRange, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public ConceptElementEntity(Guid conceptElementId, Guid modelId, string name, Guid conceptElementClassId, Guid conceptElementGroupId, int number, bool isAutoRange, Guid versionId) : base(versionId)
         {
             ConceptElementId = conceptElementId;
             ModelId = modelId;
@@ -35,6 +32,36 @@ namespace IS2.Database.ProjectData.Model
         }
 
         #endregion Конструктор
+
+        #region Методы
+
+        /// <summary>
+        /// Новый объект
+        /// </summary>
+        /// <param name="modelId">Идентификатор модели</param>
+        /// <param name="name">Название</param>
+        /// <param name="conceptElementClassId">Идентификатор класса</param>
+        /// <param name="conceptElementGroupId"></param>
+        /// <param name="number">Номер</param>
+        /// <param name="isAutoRange">Автонумерация</param>
+        /// <param name="versionId">Идентификатор версии</param>
+        public static ConceptElementEntity New(Guid modelId, string name, Guid conceptElementClassId, Guid conceptElementGroupId, int number, bool isAutoRange, Guid versionId)
+        {
+            return new ConceptElementEntity(default, modelId, name, conceptElementClassId, conceptElementGroupId, number, isAutoRange, versionId);
+        }
+
+        /// <summary>
+        /// Новый объект с другим идентификатором версии
+        /// </summary>
+        /// <param name="entity">Сущность</param>
+        /// <param name="versionId">Новая версия</param>
+        public static ConceptElementEntity NewFromExisting(ConceptElementEntity entity, Guid versionId)
+        {
+            var newEntity = new ConceptElementEntity(entity.ConceptElementId, entity.ModelId, entity.Name, entity.ConceptElementClassId, entity.ConceptElementGroupId, entity.Number, entity.IsAutoRange, versionId);
+            return newEntity;
+        }
+
+        #endregion Методы
 
         #region Свойства
 

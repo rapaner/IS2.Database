@@ -6,11 +6,17 @@ using Microsoft.EntityFrameworkCore;
 namespace IS2.Database.ConfigurationData.Repositories
 {
     /// <summary>
-    /// Репозиторий настроек
+    /// Репозиторий настроек ользователей
     /// </summary>
-    public class UserSettingRepository : IVersioningRepository<UserSettingEntity>
+    public class UserSettingRepository : IVersioningRepository<UserSettingEntity, Guid>
     {
         private readonly ConfigurationDataContext _context;
+
+        public UserSettingRepository(ConfigurationDataContext context)
+        {
+            _context = context;
+        }
+
         public IUnitOfWork UnitOfWork => _context;
 
         /// <inheritdoc/>

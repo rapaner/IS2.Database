@@ -11,7 +11,9 @@ namespace IS2.Database.ProjectData.EntityConfiguration
             entity.ToTable("ConceptElements");
 
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.ConceptElementId).IsRequired();
+            entity.Property(e => e.ConceptElementId)
+                .IsRequired()
+                .ValueGeneratedOnAdd();
             entity.Property(e => e.ModelId).IsRequired();
             entity.Property(e => e.Name).IsRequired();
             entity.Property(e => e.ConceptElementClassId).IsRequired();

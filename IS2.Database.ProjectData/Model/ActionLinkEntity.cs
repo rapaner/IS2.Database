@@ -12,7 +12,6 @@ namespace IS2.Database.ProjectData.Model
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="id">Идентификатор</param>
         /// <param name="actionLinkId">Идентификатор связи</param>
         /// <param name="modelId">Идентификатор модели</param>
         /// <param name="linkTypeId">Идентификатор типа связи</param>
@@ -20,9 +19,7 @@ namespace IS2.Database.ProjectData.Model
         /// <param name="actionId2">Идентификатор второго действия</param>
         /// <param name="actionId3">Идентификатор третьего действия</param>
         /// <param name="versionId">Идентификатор версии</param>
-        /// <param name="dateInsert">Дата вставки записи</param>
-        /// <param name="isDeleted">Удалена?</param>
-        public ActionLinkEntity(Guid id, Guid actionLinkId, Guid modelId, Guid linkTypeId, Guid actionId1, Guid actionId2, Guid? actionId3, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public ActionLinkEntity(Guid actionLinkId, Guid modelId, Guid linkTypeId, Guid actionId1, Guid actionId2, Guid? actionId3, Guid versionId) : base(versionId)
         {
             ActionLinkId = actionLinkId;
             ModelId = modelId;
@@ -33,6 +30,35 @@ namespace IS2.Database.ProjectData.Model
         }
 
         #endregion Конструкторы
+
+        #region Методы
+
+        /// <summary>
+        /// Новый объект
+        /// </summary>
+        /// <param name="modelId">Идентификатор модели</param>
+        /// <param name="linkTypeId">Идентификатор типа связи</param>
+        /// <param name="actionId1">Идентификатор первого действия</param>
+        /// <param name="actionId2">Идентификатор второго действия</param>
+        /// <param name="actionId3">Идентификатор третьего действия</param>
+        /// <param name="versionId">Идентификатор версии</param>
+        public static ActionLinkEntity New(Guid modelId, Guid linkTypeId, Guid actionId1, Guid actionId2, Guid? actionId3, Guid versionId)
+        {
+            return new ActionLinkEntity(default, modelId, linkTypeId, actionId1, actionId2, actionId3, versionId);
+        }
+
+        /// <summary>
+        /// Новый объект с другим идентификатором версии
+        /// </summary>
+        /// <param name="entity">Сущность</param>
+        /// <param name="versionId">Новая версия</param>
+        public static ActionLinkEntity NewFromExisting(ActionLinkEntity entity, Guid versionId)
+        {
+            var newEntity = new ActionLinkEntity(entity.ActionLinkId, entity.ModelId, entity.LinkTypeId, entity.ActionId1, entity.ActionId2, entity.ActionId3, versionId);
+            return newEntity;
+        }
+
+        #endregion Методы
 
         #region Свойства
 

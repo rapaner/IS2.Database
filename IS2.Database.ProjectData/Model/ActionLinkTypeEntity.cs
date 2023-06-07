@@ -3,7 +3,7 @@
 namespace IS2.Database.ProjectData.Model
 {
     /// <summary>
-    /// Тип связи
+    /// Тип связи между действиями
     /// </summary>
     public class ActionLinkTypeEntity : VersioningEntity
     {
@@ -12,19 +12,41 @@ namespace IS2.Database.ProjectData.Model
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="id">Идентификатор</param>
         /// <param name="actionLinkTypeId">Идентификатор типа связи</param>
         /// <param name="name">Название</param>
         /// <param name="versionId">Идентификатор версии</param>
-        /// <param name="dateInsert">Дата вставки записи</param>
-        /// <param name="isDeleted">Удалена?</param>
-        public ActionLinkTypeEntity(Guid id, short actionLinkTypeId, string name, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public ActionLinkTypeEntity(short actionLinkTypeId, string name, Guid versionId) : base(versionId)
         {
             ActionLinkTypeId = actionLinkTypeId;
             Name = name;
         }
 
         #endregion Конструкторы
+
+        #region Методы
+
+        /// <summary>
+        /// Новый объект
+        /// </summary>
+        /// <param name="name">Название</param>
+        /// <param name="versionId">Идентификатор версии</param>
+        public static ActionLinkTypeEntity New(string name, Guid versionId)
+        {
+            return new ActionLinkTypeEntity(default, name, versionId);
+        }
+
+        /// <summary>
+        /// Новый объект с другим идентификатором версии
+        /// </summary>
+        /// <param name="entity">Сущность</param>
+        /// <param name="versionId">Новая версия</param>
+        public static ActionLinkTypeEntity NewFromExisting(ActionLinkTypeEntity entity, Guid versionId)
+        {
+            var newEntity = new ActionLinkTypeEntity(entity.ActionLinkTypeId, entity.Name, versionId);
+            return newEntity;
+        }
+
+        #endregion Методы
 
         #region Свойства
 

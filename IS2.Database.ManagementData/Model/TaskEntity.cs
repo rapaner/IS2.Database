@@ -12,7 +12,6 @@ namespace IS2.Database.ManagementData.Model
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="id">Идентификатор</param>
         /// <param name="taskId">Идентификатор задачи</param>
         /// <param name="projectId">Идентификатор проекта</param>
         /// <param name="name">Название</param>
@@ -22,9 +21,7 @@ namespace IS2.Database.ManagementData.Model
         /// <param name="dateStartFact">Фактический срок начала</param>
         /// <param name="dateFinishFact">Фактический срок окончания</param>
         /// <param name="versionId">Идентификатор версии</param>
-        /// <param name="dateInsert">Дата вставки записи</param>
-        /// <param name="isDeleted">Удалена?</param>
-        public TaskEntity(Guid id, Guid taskId, Guid projectId, string name, short statusId, DateTime dateStartPlan, DateTime dateFinishPlan, DateTime? dateStartFact, DateTime? dateFinishFact, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public TaskEntity(Guid taskId, Guid projectId, string name, short statusId, DateTime dateStartPlan, DateTime dateFinishPlan, DateTime? dateStartFact, DateTime? dateFinishFact, Guid versionId) : base(versionId)
         {
             TaskId = taskId;
             ProjectId = projectId;
@@ -37,6 +34,34 @@ namespace IS2.Database.ManagementData.Model
         }
 
         #endregion Конструкторы
+
+        #region Методы
+
+        /// <summary>
+        /// Новый объект
+        /// </summary>
+        /// <param name="roleId">Идентификатор роли</param>
+        /// <param name="userId">Идентификатор пользователя</param>
+        /// <param name="dateStart">Дата начала</param>
+        /// <param name="dateFinish">Дата окончания</param>
+        /// <param name="versionId">Идентификатор версии</param>
+        public static TaskEntity New(Guid projectId, string name, short statusId, DateTime dateStartPlan, DateTime dateFinishPlan, DateTime? dateStartFact, DateTime? dateFinishFact, Guid versionId)
+        {
+            return new TaskEntity(default, projectId, name, statusId, dateStartPlan, dateFinishPlan, dateStartFact, dateFinishFact, versionId);
+        }
+
+        /// <summary>
+        /// Новый объект с другим идентификатором версии
+        /// </summary>
+        /// <param name="entity">Сущность</param>
+        /// <param name="versionId">Новая версия</param>
+        public static TaskEntity NewFromExisting(TaskEntity entity, Guid versionId)
+        {
+            var newEntity = new TaskEntity(entity.TaskId, entity.ProjectId, entity.Name, entity.StatusId, entity.DateStartPlan, entity.DateFinishPlan, entity.DateStartFact, entity.DateFinishFact, versionId);
+            return newEntity;
+        }
+
+        #endregion Методы
 
         #region Свойства
 

@@ -4,14 +4,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class SpecificationTemplatePackageConfiguration : IEntityTypeConfiguration<SpecificationTemplatePackageEntity>
+    internal class SpecificationTemplatePackageConfiguration : IEntityTypeConfiguration<SpecificationTemplatePackageEntity>
     {
         public void Configure(EntityTypeBuilder<SpecificationTemplatePackageEntity> entity)
         {
             entity.ToTable("SpecificationTemplatePackages");
 
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.SpecificationTemplatePackageId).IsRequired();
+            entity.Property(e => e.SpecificationTemplatePackageId)
+                .IsRequired()
+                .ValueGeneratedOnAdd();
             entity.Property(e => e.Name).IsRequired();
             entity.Property(e => e.TableName).IsRequired();
             entity.Property(e => e.VersionId).IsRequired();

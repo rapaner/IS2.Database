@@ -12,14 +12,11 @@ namespace IS2.Database.ProjectData.Model
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="id">Идентификатор</param>
         /// <param name="modelStatusId">Идентификатор статуса</param>
         /// <param name="name">Название</param>
         /// <param name="isFinal">Конечный?</param>
         /// <param name="versionId">Идентификатор версии</param>
-        /// <param name="dateInsert">Дата вставки записи</param>
-        /// <param name="isDeleted">Удалена?</param>
-        public ModelStatusEntity(Guid id, Guid modelStatusId, string name, bool isFinal, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public ModelStatusEntity(Guid modelStatusId, string name, bool isFinal, Guid versionId) : base(versionId)
         {
             ModelStatusId = modelStatusId;
             Name = name;
@@ -27,6 +24,32 @@ namespace IS2.Database.ProjectData.Model
         }
 
         #endregion Конструкторы
+
+        #region Методы
+
+        /// <summary>
+        /// Новый объект
+        /// </summary>
+        /// <param name="name">Название</param>
+        /// <param name="isFinal">Конечный?</param>
+        /// <param name="versionId">Идентификатор версии</param>
+        public static ModelStatusEntity New(string name, bool isFinal, Guid versionId)
+        {
+            return new ModelStatusEntity(default, name, isFinal, versionId);
+        }
+
+        /// <summary>
+        /// Новый объект с другим идентификатором версии
+        /// </summary>
+        /// <param name="entity">Сущность</param>
+        /// <param name="versionId">Новая версия</param>
+        public static ModelStatusEntity NewFromExisting(ModelStatusEntity entity, Guid versionId)
+        {
+            var newEntity = new ModelStatusEntity(entity.ModelStatusId, entity.Name, entity.IsFinal, versionId);
+            return newEntity;
+        }
+
+        #endregion Методы
 
         #region Свойства
 

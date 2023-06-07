@@ -4,14 +4,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class ProcedureAvailabilityTypeConfiguration : IEntityTypeConfiguration<ProcedureAvailabilityTypeEntity>
+    internal class ProcedureAvailabilityTypeConfiguration : IEntityTypeConfiguration<ProcedureAvailabilityTypeEntity>
     {
         public void Configure(EntityTypeBuilder<ProcedureAvailabilityTypeEntity> entity)
         {
             entity.ToTable("ProcedureAvailabilityTypes");
 
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.ProcedureAvailabilityTypeId).IsRequired();
+            entity.Property(e => e.ProcedureAvailabilityTypeId)
+                .IsRequired()
+                .ValueGeneratedOnAdd();
             entity.Property(e => e.Name).IsRequired();
             entity.Property(e => e.VersionId).IsRequired();
             entity.Property(e => e.DateInsert).IsRequired();

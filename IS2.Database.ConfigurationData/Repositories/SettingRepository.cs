@@ -8,9 +8,15 @@ namespace IS2.Database.ConfigurationData.Repositories
     /// <summary>
     /// Репозиторий настроек
     /// </summary>
-    public class SettingRepository : IVersioningRepository<SettingEntity>
+    public class SettingRepository : IVersioningRepository<SettingEntity, Guid>
     {
         private readonly ConfigurationDataContext _context;
+
+        public SettingRepository(ConfigurationDataContext context)
+        {
+            _context = context;
+        }
+
         public IUnitOfWork UnitOfWork => _context;
 
         /// <inheritdoc/>

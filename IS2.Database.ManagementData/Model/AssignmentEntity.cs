@@ -2,6 +2,9 @@
 
 namespace IS2.Database.ManagementData.Model
 {
+    /// <summary>
+    /// Назначение
+    /// </summary>
     public class AssignmentEntity : VersioningEntity
     {
         #region Конструкторы
@@ -9,17 +12,13 @@ namespace IS2.Database.ManagementData.Model
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="id">Идентификатор</param>
-        /// <param name="assignmentId">Идентификатор назначения</param>
         /// <param name="procedureId">Идентификатор процедуры</param>
         /// <param name="roleId">Идентификатор роли</param>
         /// <param name="userId">Идентификатор пользователя</param>
         /// <param name="dateStart">Дата начала</param>
         /// <param name="dateFinish">Дата окончания</param>
         /// <param name="versionId">Идентификатор версии</param>
-        /// <param name="dateInsert">Дата вставки записи</param>
-        /// <param name="isDeleted">Удалена?</param>
-        public AssignmentEntity(Guid id, Guid assignmentId, Guid procedureId, Guid roleId, Guid userId, DateTime dateStart, DateTime? dateFinish, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        protected AssignmentEntity(Guid assignmentId, Guid procedureId, Guid roleId, Guid userId, DateTime dateStart, DateTime? dateFinish, Guid versionId) : base(versionId)
         {
             AssignmentId = assignmentId;
             ProcedureId = procedureId;
@@ -30,6 +29,34 @@ namespace IS2.Database.ManagementData.Model
         }
 
         #endregion Конструкторы
+
+        #region Методы
+
+        /// <summary>
+        /// Новый объект
+        /// </summary>
+        /// <param name="roleId">Идентификатор роли</param>
+        /// <param name="userId">Идентификатор пользователя</param>
+        /// <param name="dateStart">Дата начала</param>
+        /// <param name="dateFinish">Дата окончания</param>
+        /// <param name="versionId">Идентификатор версии</param>
+        public static AssignmentEntity New(Guid procedureId, Guid roleId, Guid userId, DateTime dateStart, DateTime? dateFinish, Guid versionId)
+        {
+            return new AssignmentEntity(default, procedureId, roleId, userId, dateStart, dateFinish, versionId);
+        }
+
+        /// <summary>
+        /// Новый объект с другим идентификатором версии
+        /// </summary>
+        /// <param name="entity">Сущность</param>
+        /// <param name="versionId">Новая версия</param>
+        public static AssignmentEntity NewFromExisting(AssignmentEntity entity, Guid versionId)
+        {
+            var newEntity = new AssignmentEntity(entity.AssignmentId, entity.ProcedureId, entity.RoleId, entity.UserId, entity.DateStart, entity.DateFinish, versionId);
+            return newEntity;
+        }
+
+        #endregion Методы
 
         #region Свойства
 

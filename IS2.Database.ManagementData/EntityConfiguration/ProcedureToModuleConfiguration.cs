@@ -4,13 +4,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class ProcedureToModuleConfiguration : IEntityTypeConfiguration<ProcedureToModuleEntity>
+    internal class ProcedureToModuleConfiguration : IEntityTypeConfiguration<ProcedureToModuleEntity>
     {
         public void Configure(EntityTypeBuilder<ProcedureToModuleEntity> entity)
         {
             entity.ToTable("ProcedureToModules");
 
             entity.HasKey(e => e.Id);
+            entity.Property(e => e.ProcedureToModuleId)
+                .IsRequired()
+                .ValueGeneratedOnAdd();
             entity.Property(e => e.ProcedureId).IsRequired();
             entity.Property(e => e.ModuleId).IsRequired();
             entity.Property(e => e.ProcedureAvailabilityTypeId).IsRequired();

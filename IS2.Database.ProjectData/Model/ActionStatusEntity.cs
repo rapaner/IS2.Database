@@ -3,7 +3,7 @@
 namespace IS2.Database.ProjectData.Model
 {
     /// <summary>
-    /// Тип статуса
+    /// Тип статуса действия
     /// </summary>
     public class ActionStatusEntity : VersioningEntity
     {
@@ -12,19 +12,41 @@ namespace IS2.Database.ProjectData.Model
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="id">Идентификатор</param>
-        /// <param name="actionStatusId">Идентификатор типа статуса</param>
+        /// <param name="actionStatusId">Идентификатор типа статуса действия</param>
         /// <param name="name">Название</param>
         /// <param name="versionId">Идентификатор версии</param>
-        /// <param name="dateInsert">Дата вставки записи</param>
-        /// <param name="isDeleted">Удалена?</param>
-        public ActionStatusEntity(Guid id, short actionStatusId, string name, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public ActionStatusEntity(short actionStatusId, string name, Guid versionId) : base(versionId)
         {
             ActionStatusId = actionStatusId;
             Name = name;
         }
 
         #endregion Конструкторы
+
+        #region Методы
+
+        /// <summary>
+        /// Новый объект
+        /// </summary>
+        /// <param name="name">Название</param>
+        /// <param name="versionId">Идентификатор версии</param>
+        public static ActionStatusEntity New(string name, Guid versionId)
+        {
+            return new ActionStatusEntity(default, name, versionId);
+        }
+
+        /// <summary>
+        /// Новый объект с другим идентификатором версии
+        /// </summary>
+        /// <param name="entity">Сущность</param>
+        /// <param name="versionId">Новая версия</param>
+        public static ActionStatusEntity NewFromExisting(ActionStatusEntity entity, Guid versionId)
+        {
+            var newEntity = new ActionStatusEntity(entity.ActionStatusId, entity.Name, versionId);
+            return newEntity;
+        }
+
+        #endregion Методы
 
         #region Свойства
 

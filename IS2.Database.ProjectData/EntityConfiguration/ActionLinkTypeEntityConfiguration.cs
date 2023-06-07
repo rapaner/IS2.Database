@@ -11,7 +11,9 @@ namespace IS2.Database.ProjectData.EntityConfiguration
             entity.ToTable("ActionLinkTypes");
 
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.ActionLinkTypeId).IsRequired();
+            entity.Property(e => e.ActionLinkTypeId)
+                .IsRequired()
+                .ValueGeneratedOnAdd();
             entity.Property(e => e.Name).IsRequired();
             entity.Property(e => e.VersionId).IsRequired();
             entity.Property(e => e.DateInsert).IsRequired();

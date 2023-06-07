@@ -6,9 +6,13 @@ namespace IS2.Database.Common.Repositories
     /// <summary>
     /// Интерфейс базовых операций с версионными сущностями
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public interface IVersioningRepository<T> where T : VersioningEntity
+    /// <typeparam name="T">Тип сущности</typeparam>
+    /// <typeparam name="U">Тип идентификатора сущности</typeparam>
+    public interface IVersioningRepository<T, U> where T : VersioningEntity
     {
+        /// <summary>
+        /// Unit of work
+        /// </summary>
         public IUnitOfWork UnitOfWork { get; }
 
         /// <summary>
@@ -22,13 +26,13 @@ namespace IS2.Database.Common.Repositories
         /// </summary>
         /// <param name="entityId">Идентификатор сущности</param>
         /// <param name="versionId">Идентификатор версии</param>
-        Task<T> FindByIdAndVersionId(Guid entityId, Guid versionId);
+        Task<T> FindByIdAndVersionId(U entityId, Guid versionId);
 
         /// <summary>
         /// Найти все версии сущности
         /// </summary>
         /// <param name="entityId">Идентификатор сущности</param>
         /// <param name="versionIds">Список версий</param>
-        Task<IEnumerable<T>> FindAllVersionsById(Guid entityId, IEnumerable<Guid> versionIds);
+        Task<IEnumerable<T>> FindAllVersionsById(U entityId, IEnumerable<Guid> versionIds);
     }
 }

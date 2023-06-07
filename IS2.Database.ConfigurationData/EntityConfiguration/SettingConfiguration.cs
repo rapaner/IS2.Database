@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ConfigurationData.EntityConfiguration
 {
-    class SettingConfiguration : IEntityTypeConfiguration<SettingEntity>
+    internal class SettingConfiguration : IEntityTypeConfiguration<SettingEntity>
     {
         public void Configure(EntityTypeBuilder<SettingEntity> entity)
         {

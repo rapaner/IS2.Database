@@ -12,14 +12,11 @@ namespace IS2.Database.ManagementData.Model
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="id">Идентификатор</param>
         /// <param name="stageTypeId">Идентификатор типа этапа</param>
         /// <param name="name">Название</param>
         /// <param name="specificationTemplatePackageId">Идентификатор набора шаблонов спецификаций</param>
         /// <param name="versionId">Идентификатор версии</param>
-        /// <param name="dateInsert">Дата вставки записи</param>
-        /// <param name="isDeleted">Удалена?</param>
-        public StageTypeEntity(Guid id, Guid stageTypeId, string name, Guid specificationTemplatePackageId, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public StageTypeEntity(Guid stageTypeId, string name, Guid specificationTemplatePackageId, Guid versionId) : base(versionId)
         {
             StageTypeId = stageTypeId;
             Name = name;
@@ -27,6 +24,32 @@ namespace IS2.Database.ManagementData.Model
         }
 
         #endregion Конструктор
+
+        #region Методы
+
+        /// <summary>
+        /// Новый объект
+        /// </summary>
+        /// <param name="name">Название</param>
+        /// <param name="specificationTemplatePackageId">Идентификатор набора шаблонов спецификаций</param>
+        /// <param name="versionId">Идентификатор версии</param>
+        public static StageTypeEntity New(string name, Guid specificationTemplatePackageId, Guid versionId)
+        {
+            return new StageTypeEntity(default, name, specificationTemplatePackageId, versionId);
+        }
+
+        /// <summary>
+        /// Новый объект с другим идентификатором версии
+        /// </summary>
+        /// <param name="entity">Сущность</param>
+        /// <param name="versionId">Новая версия</param>
+        public static StageTypeEntity NewFromExisting(StageTypeEntity entity, Guid versionId)
+        {
+            var newEntity = new StageTypeEntity(entity.StageTypeId, entity.Name, entity.SpecificationTemplatePackageId, versionId);
+            return newEntity;
+        }
+
+        #endregion Методы
 
         #region Свойства
 

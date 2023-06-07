@@ -11,7 +11,9 @@ namespace IS2.Database.ProjectData.EntityConfiguration
             entity.ToTable("Models");
 
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.ModelId).IsRequired();
+            entity.Property(e => e.ModelId)
+                .IsRequired()
+                .ValueGeneratedOnAdd();
             entity.Property(e => e.Name).IsRequired();
             entity.Property(e => e.ProjectId).IsRequired();
             entity.Property(e => e.ModelTypeId).IsRequired();

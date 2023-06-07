@@ -4,14 +4,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class ProcedureConfiguration : IEntityTypeConfiguration<ProcedureEntity>
+    internal class ProcedureConfiguration : IEntityTypeConfiguration<ProcedureEntity>
     {
         public void Configure(EntityTypeBuilder<ProcedureEntity> entity)
         {
             entity.ToTable("Procedures");
 
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.ProcedureId).IsRequired();
+            entity.Property(e => e.ProcedureId)
+                .IsRequired()
+                .ValueGeneratedOnAdd();
             entity.Property(e => e.ProcedureTypeId).IsRequired();
             entity.Property(e => e.StageId).IsRequired();
             entity.Property(e => e.StatusId).IsRequired();

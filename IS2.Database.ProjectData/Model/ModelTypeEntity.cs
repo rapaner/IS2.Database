@@ -12,19 +12,41 @@ namespace IS2.Database.ProjectData.Model
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="id">Идентификатор</param>
         /// <param name="modelTypeId">Идентификатор типа</param>
         /// <param name="name">Название</param>
         /// <param name="versionId">Идентификатор версии</param>
-        /// <param name="dateInsert">Дата вставки записи</param>
-        /// <param name="isDeleted">Удалена?</param>
-        public ModelTypeEntity(Guid id, Guid modelTypeId, string name, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public ModelTypeEntity(Guid modelTypeId, string name, Guid versionId) : base(versionId)
         {
             ModelTypeId = modelTypeId;
             Name = name;
         }
 
         #endregion Конструкторы
+
+        #region Методы
+
+        /// <summary>
+        /// Новый объект
+        /// </summary>
+        /// <param name="name">Название</param>
+        /// <param name="versionId">Идентификатор версии</param>
+        public static ModelTypeEntity New(string name, Guid versionId)
+        {
+            return new ModelTypeEntity(default, name, versionId);
+        }
+
+        /// <summary>
+        /// Новый объект с другим идентификатором версии
+        /// </summary>
+        /// <param name="entity">Сущность</param>
+        /// <param name="versionId">Новая версия</param>
+        public static ModelTypeEntity NewFromExisting(ModelTypeEntity entity, Guid versionId)
+        {
+            var newEntity = new ModelTypeEntity(entity.ModelTypeId, entity.Name, versionId);
+            return newEntity;
+        }
+
+        #endregion Методы
 
         #region Свойства
 

@@ -21,21 +21,6 @@
             DateInsert = DateTime.Now;
         }
 
-        /// <summary>
-        /// Конструктор
-        /// </summary>
-        /// <param name="id">Идентификатор строки</param>
-        /// <param name="versionId">Идентификатор версии</param>
-        /// <param name="dateInsert">Дата вставки записи</param>
-        /// <param name="isDeleted">Удалена?</param>
-        protected VersioningEntity(Guid id, Guid versionId, DateTime dateInsert, bool isDeleted)
-        {
-            Id = id;
-            VersionId = versionId;
-            DateInsert = dateInsert;
-            IsDeleted = isDeleted;
-        }
-
         #region Свойства
 
         /// <summary>
@@ -90,5 +75,12 @@
         }
 
         #endregion Методы изменения свойств
+
+        #region Служебные методы
+        public bool IsTransient()
+        {
+            return Id == default;
+        }
+        #endregion
     }
 }

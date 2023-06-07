@@ -10,12 +10,14 @@ namespace IS2.Database.ConfigurationData.Model
         /// <summary>
         /// Конструктор
         /// </summary>
+        /// <param name="userSettingId">Идентификатор настройки пользователя</param>
         /// <param name="settingId">Идентификатор настройки</param>
         /// <param name="userId">Идентификатор пользователя</param>
         /// <param name="value">Значение</param>
         /// <param name="versionId">Идентификатор версии</param>
-        public UserSettingEntity(Guid settingId, Guid userId, string value, Guid versionId) : base(versionId)
+        protected UserSettingEntity(Guid userSettingId, Guid settingId, Guid userId, string value, Guid versionId) : base(versionId)
         {
+            UserSettingId = userSettingId;
             SettingId = settingId;
             UserId = userId;
             Value = value;
@@ -45,12 +47,34 @@ namespace IS2.Database.ConfigurationData.Model
 
         #endregion Свойства
 
-        #region Служебные методы
+        #region Методы
 
-        public bool IsTransient()
+        /// <summary>
+        /// Новый объект
+        /// </summary>
+        /// <param name="settingId">Идентификатор настройки</param>
+        /// <param name="userId">Идентификатор пользователя</param>
+        /// <param name="value">Значение</param>
+        /// <param name="versionId">Идентификатор версии</param>
+        public static UserSettingEntity New(Guid settingId, Guid userId, string value, Guid versionId)
         {
-            return Id == default;
+            return new UserSettingEntity(default, settingId, userId, value, versionId);
         }
+
+        /// <summary>
+        /// Новый объект с другим идентификатором версии
+        /// </summary>
+        /// <param name="entity">Сущность</param>
+        /// <param name="versionId">Новая версия</param>
+        public static UserSettingEntity NewFromExisting(UserSettingEntity entity, Guid versionId)
+        {
+            var setting = new UserSettingEntity(entity.UserSettingId, entity.SettingId, entity.UserId, entity.Value, versionId);
+            return setting;
+        }
+
+        #endregion Методы
+
+        #region Служебные методы
 
         public override bool Equals(object obj)
         {

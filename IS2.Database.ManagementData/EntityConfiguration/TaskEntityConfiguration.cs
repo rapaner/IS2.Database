@@ -4,14 +4,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class TaskEntityConfiguration : IEntityTypeConfiguration<TaskEntity>
+    internal class TaskEntityConfiguration : IEntityTypeConfiguration<TaskEntity>
     {
         public void Configure(EntityTypeBuilder<TaskEntity> entity)
         {
             entity.ToTable("Tasks");
 
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.TaskId).IsRequired();
+            entity.Property(e => e.TaskId)
+                .IsRequired()
+                .ValueGeneratedOnAdd();
             entity.Property(e => e.ProjectId).IsRequired();
             entity.Property(e => e.Name).IsRequired();
             entity.Property(e => e.StatusId).IsRequired();

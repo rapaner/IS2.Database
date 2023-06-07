@@ -4,14 +4,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class StageConfiguration : IEntityTypeConfiguration<StageEntity>
+    internal class StageConfiguration : IEntityTypeConfiguration<StageEntity>
     {
         public void Configure(EntityTypeBuilder<StageEntity> entity)
         {
             entity.ToTable("Stages");
 
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.StageId).IsRequired();
+            entity.Property(e => e.StageId)
+                .IsRequired()
+                .ValueGeneratedOnAdd();
             entity.Property(e => e.StageTypeId).IsRequired();
             entity.Property(e => e.TaskId).IsRequired();
             entity.Property(e => e.StatusId).IsRequired();

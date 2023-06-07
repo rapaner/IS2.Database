@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
@@ -16,7 +17,8 @@ namespace IS2.Database.ProjectData.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    ActionFormalizationId = table.Column<short>(type: "smallint", nullable: false),
+                    ActionFormalizationId = table.Column<short>(type: "smallint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
                     VersionId = table.Column<Guid>(type: "uuid", nullable: false),
                     DateInsert = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
@@ -52,7 +54,8 @@ namespace IS2.Database.ProjectData.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    ActionLinkTypeId = table.Column<short>(type: "smallint", nullable: false),
+                    ActionLinkTypeId = table.Column<short>(type: "smallint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
                     VersionId = table.Column<Guid>(type: "uuid", nullable: false),
                     DateInsert = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
@@ -92,7 +95,8 @@ namespace IS2.Database.ProjectData.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    ActionStatusId = table.Column<short>(type: "smallint", nullable: false),
+                    ActionStatusId = table.Column<short>(type: "smallint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
                     VersionId = table.Column<Guid>(type: "uuid", nullable: false),
                     DateInsert = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
@@ -108,7 +112,8 @@ namespace IS2.Database.ProjectData.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    ActionTypeId = table.Column<short>(type: "smallint", nullable: false),
+                    ActionTypeId = table.Column<short>(type: "smallint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
                     VersionId = table.Column<Guid>(type: "uuid", nullable: false),
                     DateInsert = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
@@ -124,7 +129,8 @@ namespace IS2.Database.ProjectData.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    ConceptElementClassId = table.Column<short>(type: "smallint", nullable: false),
+                    ConceptElementClassId = table.Column<short>(type: "smallint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
                     VersionId = table.Column<Guid>(type: "uuid", nullable: false),
                     DateInsert = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
@@ -140,7 +146,8 @@ namespace IS2.Database.ProjectData.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    ConceptElementGroupId = table.Column<short>(type: "smallint", nullable: false),
+                    ConceptElementGroupId = table.Column<short>(type: "smallint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
                     VersionId = table.Column<Guid>(type: "uuid", nullable: false),
                     DateInsert = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),

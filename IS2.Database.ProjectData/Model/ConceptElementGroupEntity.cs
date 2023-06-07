@@ -12,19 +12,41 @@ namespace IS2.Database.ProjectData.Model
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="id">Идентификатор</param>
         /// <param name="conceptElementGroupId">Идентификатор группы</param>
         /// <param name="name">Название</param>
         /// <param name="versionId">Идентификатор версии</param>
-        /// <param name="dateInsert">Дата вставки записи</param>
-        /// <param name="isDeleted">Удалена?</param>
-        public ConceptElementGroupEntity(Guid id, short conceptElementGroupId, string name, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public ConceptElementGroupEntity(short conceptElementGroupId, string name, Guid versionId) : base(versionId)
         {
             ConceptElementGroupId = conceptElementGroupId;
             Name = name;
         }
 
         #endregion Конструкторы
+
+        #region Методы
+
+        /// <summary>
+        /// Новый объект
+        /// </summary>
+        /// <param name="name">Название</param>
+        /// <param name="versionId">Идентификатор версии</param>
+        public static ConceptElementGroupEntity New(string name, Guid versionId)
+        {
+            return new ConceptElementGroupEntity(default, name, versionId);
+        }
+
+        /// <summary>
+        /// Новый объект с другим идентификатором версии
+        /// </summary>
+        /// <param name="entity">Сущность</param>
+        /// <param name="versionId">Новая версия</param>
+        public static ConceptElementGroupEntity NewFromExisting(ConceptElementGroupEntity entity, Guid versionId)
+        {
+            var newEntity = new ConceptElementGroupEntity(entity.ConceptElementGroupId, entity.Name, versionId);
+            return newEntity;
+        }
+
+        #endregion Методы
 
         #region Свойства
 

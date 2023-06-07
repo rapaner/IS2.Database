@@ -4,14 +4,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class ProjectConfiguration : IEntityTypeConfiguration<ProjectEntity>
+    internal class ProjectConfiguration : IEntityTypeConfiguration<ProjectEntity>
     {
         public void Configure(EntityTypeBuilder<ProjectEntity> entity)
         {
             entity.ToTable("Projects");
 
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.ProjectId).IsRequired();
+            entity.Property(e => e.ProjectId)
+                .IsRequired()
+                .ValueGeneratedOnAdd();
             entity.Property(e => e.Name).IsRequired();
             entity.Property(e => e.StatusId).IsRequired();
             entity.Property(e => e.DateStartPlan).IsRequired();

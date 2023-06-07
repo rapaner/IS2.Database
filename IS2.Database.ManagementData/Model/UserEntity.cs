@@ -9,16 +9,13 @@ namespace IS2.Database.ManagementData.Model
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="id">Идентификатор</param>
         /// <param name="userId">Идентификатор пользователя</param>
         /// <param name="lastName">Фамилия</param>
         /// <param name="firstName">Имя</param>
         /// <param name="middleName">Отчество</param>
         /// <param name="email">Почта</param>
         /// <param name="versionId">Идентификатор версии</param>
-        /// <param name="dateInsert">Дата вставки записи</param>
-        /// <param name="isDeleted">Удалена?</param>
-        public UserEntity(Guid id, Guid userId, string lastName, string firstName, string middleName, string email, Guid versionId, DateTime dateInsert, bool isDeleted) : base(id, versionId, dateInsert, isDeleted)
+        public UserEntity(Guid userId, string lastName, string firstName, string middleName, string email, Guid versionId) : base(versionId)
         {
             UserId = userId;
             LastName = lastName;
@@ -28,6 +25,34 @@ namespace IS2.Database.ManagementData.Model
         }
 
         #endregion Конструктор
+
+        #region Методы
+
+        /// <summary>
+        /// Новый объект
+        /// </summary>
+        /// <param name="lastName">Фамилия</param>
+        /// <param name="firstName">Имя</param>
+        /// <param name="middleName">Отчество</param>
+        /// <param name="email">Почта</param>
+        /// <param name="versionId">Идентификатор версии</param>
+        public static UserEntity New(string lastName, string firstName, string middleName, string email, Guid versionId)
+        {
+            return new UserEntity(default, lastName, firstName, middleName, email, versionId);
+        }
+
+        /// <summary>
+        /// Новый объект с другим идентификатором версии
+        /// </summary>
+        /// <param name="entity">Сущность</param>
+        /// <param name="versionId">Новая версия</param>
+        public static UserEntity NewFromExisting(UserEntity entity, Guid versionId)
+        {
+            var newEntity = new UserEntity(entity.UserId, entity.LastName, entity.FirstName, entity.MiddleName, entity.Email, versionId);
+            return newEntity;
+        }
+
+        #endregion Методы
 
         #region Свойства
 

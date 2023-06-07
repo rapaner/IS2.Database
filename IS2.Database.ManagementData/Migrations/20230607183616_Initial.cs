@@ -91,6 +91,7 @@ namespace IS2.Database.ManagementData.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    ProcedureToModuleId = table.Column<Guid>(type: "uuid", nullable: false),
                     ProcedureId = table.Column<Guid>(type: "uuid", nullable: false),
                     ModuleId = table.Column<Guid>(type: "uuid", nullable: false),
                     ProcedureAvailabilityTypeId = table.Column<Guid>(type: "uuid", nullable: false),

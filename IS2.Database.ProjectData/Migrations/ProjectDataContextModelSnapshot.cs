@@ -32,6 +32,7 @@ namespace IS2.Database.ProjectData.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("ActionId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("ActionStatusId")
@@ -75,14 +76,17 @@ namespace IS2.Database.ProjectData.Migrations
                     b.ToTable("Actions", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ProjectData.Model.ActionFormalization", b =>
+            modelBuilder.Entity("IS2.Database.ProjectData.Model.ActionFormalizationEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<short>("ActionFormalizationId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("smallint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<short>("ActionFormalizationId"));
 
                     b.Property<DateTime>("DateInsert")
                         .HasColumnType("timestamp with time zone");
@@ -104,7 +108,7 @@ namespace IS2.Database.ProjectData.Migrations
                     b.ToTable("ActionFormalizations", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ProjectData.Model.ActionLink", b =>
+            modelBuilder.Entity("IS2.Database.ProjectData.Model.ActionLinkEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -120,6 +124,7 @@ namespace IS2.Database.ProjectData.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("ActionLinkId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("DateInsert")
@@ -144,14 +149,17 @@ namespace IS2.Database.ProjectData.Migrations
                     b.ToTable("ActionLinks", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ProjectData.Model.ActionLinkType", b =>
+            modelBuilder.Entity("IS2.Database.ProjectData.Model.ActionLinkTypeEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<short>("ActionLinkTypeId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("smallint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<short>("ActionLinkTypeId"));
 
                     b.Property<DateTime>("DateInsert")
                         .HasColumnType("timestamp with time zone");
@@ -173,14 +181,17 @@ namespace IS2.Database.ProjectData.Migrations
                     b.ToTable("ActionLinkTypes", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ProjectData.Model.ActionStatus", b =>
+            modelBuilder.Entity("IS2.Database.ProjectData.Model.ActionStatusEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<short>("ActionStatusId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("smallint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<short>("ActionStatusId"));
 
                     b.Property<DateTime>("DateInsert")
                         .HasColumnType("timestamp with time zone");
@@ -202,14 +213,17 @@ namespace IS2.Database.ProjectData.Migrations
                     b.ToTable("ActionStatuses", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ProjectData.Model.ActionType", b =>
+            modelBuilder.Entity("IS2.Database.ProjectData.Model.ActionTypeEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<short>("ActionTypeId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("smallint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<short>("ActionTypeId"));
 
                     b.Property<DateTime>("DateInsert")
                         .HasColumnType("timestamp with time zone");
@@ -231,7 +245,39 @@ namespace IS2.Database.ProjectData.Migrations
                     b.ToTable("ActionTypes", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ProjectData.Model.ConceptElement", b =>
+            modelBuilder.Entity("IS2.Database.ProjectData.Model.ConceptElementClassEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<short>("ConceptElementClassId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("smallint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<short>("ConceptElementClassId"));
+
+                    b.Property<DateTime>("DateInsert")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("VersionId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("VersionId", "DateInsert", "IsDeleted");
+
+                    b.ToTable("ConceptElementClasses", (string)null);
+                });
+
+            modelBuilder.Entity("IS2.Database.ProjectData.Model.ConceptElementEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -244,6 +290,7 @@ namespace IS2.Database.ProjectData.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("ConceptElementId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("DateInsert")
@@ -275,43 +322,17 @@ namespace IS2.Database.ProjectData.Migrations
                     b.ToTable("ConceptElements", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ProjectData.Model.ConceptElementClass", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<short>("ConceptElementClassId")
-                        .HasColumnType("smallint");
-
-                    b.Property<DateTime>("DateInsert")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<Guid>("VersionId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("VersionId", "DateInsert", "IsDeleted");
-
-                    b.ToTable("ConceptElementClasses", (string)null);
-                });
-
-            modelBuilder.Entity("IS2.Database.ProjectData.Model.ConceptElementGroup", b =>
+            modelBuilder.Entity("IS2.Database.ProjectData.Model.ConceptElementGroupEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<short>("ConceptElementGroupId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("smallint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<short>("ConceptElementGroupId"));
 
                     b.Property<DateTime>("DateInsert")
                         .HasColumnType("timestamp with time zone");
@@ -346,6 +367,7 @@ namespace IS2.Database.ProjectData.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<Guid>("ModelId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("ModelStatusId")
@@ -371,7 +393,7 @@ namespace IS2.Database.ProjectData.Migrations
                     b.ToTable("Models", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ProjectData.Model.ModelStatus", b =>
+            modelBuilder.Entity("IS2.Database.ProjectData.Model.ModelStatusEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -387,6 +409,7 @@ namespace IS2.Database.ProjectData.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<Guid>("ModelStatusId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("Name")
@@ -403,7 +426,7 @@ namespace IS2.Database.ProjectData.Migrations
                     b.ToTable("ModelStatuses", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ProjectData.Model.ModelType", b =>
+            modelBuilder.Entity("IS2.Database.ProjectData.Model.ModelTypeEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -416,6 +439,7 @@ namespace IS2.Database.ProjectData.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<Guid>("ModelTypeId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("Name")

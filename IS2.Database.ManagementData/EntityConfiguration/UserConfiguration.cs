@@ -4,14 +4,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IS2.Database.ManagementData.EntityConfiguration
 {
-    class UserConfiguration : IEntityTypeConfiguration<UserEntity>
+    internal class UserConfiguration : IEntityTypeConfiguration<UserEntity>
     {
         public void Configure(EntityTypeBuilder<UserEntity> entity)
         {
             entity.ToTable("Users");
 
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.UserId).IsRequired();
+            entity.Property(e => e.UserId)
+                .IsRequired()
+                .ValueGeneratedOnAdd();
             entity.Property(e => e.LastName).IsRequired();
             entity.Property(e => e.FirstName).IsRequired();
             entity.Property(e => e.MiddleName).IsRequired();

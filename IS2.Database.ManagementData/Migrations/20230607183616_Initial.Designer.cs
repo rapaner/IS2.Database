@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace IS2.Database.ManagementData.Migrations
 {
     [DbContext(typeof(ManagementDataContext))]
-    [Migration("20230525123730_Initial")]
+    [Migration("20230607183616_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -25,13 +25,14 @@ namespace IS2.Database.ManagementData.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("IS2.Database.ManagementData.Model.Assignment", b =>
+            modelBuilder.Entity("IS2.Database.ManagementData.Model.AssignmentEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("AssignmentId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<DateTime?>("DateFinish")
@@ -65,7 +66,37 @@ namespace IS2.Database.ManagementData.Migrations
                     b.ToTable("Assignments", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ManagementData.Model.Procedure", b =>
+            modelBuilder.Entity("IS2.Database.ManagementData.Model.ProcedureAvailabilityTypeEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("DateInsert")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("ProcedureAvailabilityTypeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("VersionId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("VersionId", "DateInsert", "IsDeleted");
+
+                    b.ToTable("ProcedureAvailabilityTypes", (string)null);
+                });
+
+            modelBuilder.Entity("IS2.Database.ManagementData.Model.ProcedureEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -90,6 +121,7 @@ namespace IS2.Database.ManagementData.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<Guid>("ProcedureId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("ProcedureTypeId")
@@ -111,36 +143,7 @@ namespace IS2.Database.ManagementData.Migrations
                     b.ToTable("Procedures", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ManagementData.Model.ProcedureAvailabilityType", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("DateInsert")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<Guid>("ProcedureAvailabilityTypeId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("VersionId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("VersionId", "DateInsert", "IsDeleted");
-
-                    b.ToTable("ProcedureAvailabilityTypes", (string)null);
-                });
-
-            modelBuilder.Entity("IS2.Database.ManagementData.Model.ProcedureToModule", b =>
+            modelBuilder.Entity("IS2.Database.ManagementData.Model.ProcedureToModuleEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -161,6 +164,10 @@ namespace IS2.Database.ManagementData.Migrations
                     b.Property<Guid>("ProcedureId")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid>("ProcedureToModuleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
                     b.Property<Guid>("VersionId")
                         .HasColumnType("uuid");
 
@@ -171,7 +178,7 @@ namespace IS2.Database.ManagementData.Migrations
                     b.ToTable("ProcedureToModules", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ManagementData.Model.ProcedureType", b =>
+            modelBuilder.Entity("IS2.Database.ManagementData.Model.ProcedureTypeEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -188,6 +195,7 @@ namespace IS2.Database.ManagementData.Migrations
                         .HasColumnType("text");
 
                     b.Property<Guid>("ProcedureTypeId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("VersionId")
@@ -200,7 +208,7 @@ namespace IS2.Database.ManagementData.Migrations
                     b.ToTable("ProcedureTypes", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ManagementData.Model.Project", b =>
+            modelBuilder.Entity("IS2.Database.ManagementData.Model.ProjectEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -229,6 +237,7 @@ namespace IS2.Database.ManagementData.Migrations
                         .HasColumnType("text");
 
                     b.Property<Guid>("ProjectId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<short>("StatusId")
@@ -244,7 +253,7 @@ namespace IS2.Database.ManagementData.Migrations
                     b.ToTable("Projects", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ManagementData.Model.Role", b =>
+            modelBuilder.Entity("IS2.Database.ManagementData.Model.RoleEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -261,6 +270,7 @@ namespace IS2.Database.ManagementData.Migrations
                         .HasColumnType("text");
 
                     b.Property<Guid>("RoleId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("VersionId")
@@ -273,7 +283,7 @@ namespace IS2.Database.ManagementData.Migrations
                     b.ToTable("Roles", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ManagementData.Model.Session", b =>
+            modelBuilder.Entity("IS2.Database.ManagementData.Model.SessionEntity", b =>
                 {
                     b.Property<Guid>("SessionId")
                         .ValueGeneratedOnAdd()
@@ -293,7 +303,7 @@ namespace IS2.Database.ManagementData.Migrations
                     b.ToTable("Sessions", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ManagementData.Model.SpecificationTemplatePackage", b =>
+            modelBuilder.Entity("IS2.Database.ManagementData.Model.SpecificationTemplatePackageEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -310,6 +320,7 @@ namespace IS2.Database.ManagementData.Migrations
                         .HasColumnType("text");
 
                     b.Property<Guid>("SpecificationTemplatePackageId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("TableName")
@@ -326,7 +337,7 @@ namespace IS2.Database.ManagementData.Migrations
                     b.ToTable("SpecificationTemplatePackages", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ManagementData.Model.Stage", b =>
+            modelBuilder.Entity("IS2.Database.ManagementData.Model.StageEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -351,6 +362,7 @@ namespace IS2.Database.ManagementData.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<Guid>("StageId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("StageTypeId")
@@ -372,7 +384,7 @@ namespace IS2.Database.ManagementData.Migrations
                     b.ToTable("Stages", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ManagementData.Model.StageType", b =>
+            modelBuilder.Entity("IS2.Database.ManagementData.Model.StageTypeEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -392,6 +404,7 @@ namespace IS2.Database.ManagementData.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("StageTypeId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("VersionId")
@@ -439,6 +452,7 @@ namespace IS2.Database.ManagementData.Migrations
                         .HasColumnType("smallint");
 
                     b.Property<Guid>("TaskId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("VersionId")
@@ -451,7 +465,7 @@ namespace IS2.Database.ManagementData.Migrations
                     b.ToTable("Tasks", (string)null);
                 });
 
-            modelBuilder.Entity("IS2.Database.ManagementData.Model.User", b =>
+            modelBuilder.Entity("IS2.Database.ManagementData.Model.UserEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -480,6 +494,7 @@ namespace IS2.Database.ManagementData.Migrations
                         .HasColumnType("text");
 
                     b.Property<Guid>("UserId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("VersionId")
