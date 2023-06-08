@@ -7,6 +7,9 @@
     {
         #region Поля
 
+        /// <summary>
+        /// Хэш-код объекта
+        /// </summary>
         protected int? _requestedHashCode;
 
         #endregion Поля
@@ -86,7 +89,7 @@
         /// <summary>
         /// Установить тип версии
         /// </summary>
-        /// <param name="versionTypeId">Идентификатор типа версии</param>
+        /// <param name="versionType">Тип версии</param>
         public void SetVersionTypeId(VersionTypeEntity versionType)
         {
             VersionType = versionType;
@@ -150,61 +153,12 @@
 
         #region Служебные методы
 
+        /// <summary>
+        /// Несохраненный объект
+        /// </summary>
         public bool IsTransient()
         {
             return VersionId == default;
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (obj == null || !(obj is VersionEntity))
-                return false;
-
-            if (ReferenceEquals(this, obj))
-                return true;
-
-            if (GetType() != obj.GetType())
-                return false;
-
-            VersionEntity item = (VersionEntity)obj;
-
-            if (item.IsTransient() || IsTransient())
-                return false;
-            else
-                return item.VersionId == VersionId
-                    && item.VersionType == VersionType
-                    && item.PreviousVersionId == PreviousVersionId
-                    && item.BranchId == BranchId
-                    && item.UserId == UserId
-                    && item.VersionDate == VersionDate
-                    && item.Name == Name
-                    && item.Comment == Comment;
-        }
-
-        public override int GetHashCode()
-        {
-            if (!IsTransient())
-            {
-                if (!_requestedHashCode.HasValue)
-                    _requestedHashCode = VersionId.GetHashCode() ^ 31; // XOR for random distribution (http://blogs.msdn.com/b/ericlippert/archive/2011/02/28/guidelines-and-rules-for-gethashcode.aspx)
-
-                return _requestedHashCode.Value;
-            }
-            else
-                return base.GetHashCode();
-        }
-
-        public static bool operator ==(VersionEntity left, VersionEntity right)
-        {
-            if (Equals(left, null))
-                return (Equals(right, null)) ? true : false;
-            else
-                return left.Equals(right);
-        }
-
-        public static bool operator !=(VersionEntity left, VersionEntity right)
-        {
-            return !(left == right);
         }
 
         #endregion Служебные методы

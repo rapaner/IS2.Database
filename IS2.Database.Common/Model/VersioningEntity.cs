@@ -7,6 +7,9 @@
     {
         #region Поля
 
+        /// <summary>
+        /// Хэш-код объекта
+        /// </summary>
         protected int? _requestedHashCode;
 
         #endregion Поля
@@ -77,10 +80,15 @@
         #endregion Методы изменения свойств
 
         #region Служебные методы
+
+        /// <summary>
+        /// Несохраненный объект
+        /// </summary>
         public bool IsTransient()
         {
             return Id == default;
         }
-        #endregion
+
+        #endregion Служебные методы
     }
 }

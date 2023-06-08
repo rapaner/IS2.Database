@@ -12,6 +12,7 @@ namespace IS2.Database.ManagementData.Model
         /// <summary>
         /// Конструктор
         /// </summary>
+        /// <param name="assignmentId">Идентификатор назначения</param>
         /// <param name="procedureId">Идентификатор процедуры</param>
         /// <param name="roleId">Идентификатор роли</param>
         /// <param name="userId">Идентификатор пользователя</param>
@@ -35,6 +36,7 @@ namespace IS2.Database.ManagementData.Model
         /// <summary>
         /// Новый объект
         /// </summary>
+        /// <param name="procedureId">Идентификатор процедуры</param>
         /// <param name="roleId">Идентификатор роли</param>
         /// <param name="userId">Идентификатор пользователя</param>
         /// <param name="dateStart">Дата начала</param>

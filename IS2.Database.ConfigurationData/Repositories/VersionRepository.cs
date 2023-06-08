@@ -10,8 +10,14 @@ namespace IS2.Database.ConfigurationData.Repositories
     public class VersionRepository : IVersionRepository
     {
         private readonly ConfigurationDataContext _context;
+
+        /// <inheritdoc/>
         public IUnitOfWork UnitOfWork => _context;
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="context">Контекст данных</param>
         public VersionRepository(ConfigurationDataContext context)
         {
             _context = context;
@@ -20,7 +26,7 @@ namespace IS2.Database.ConfigurationData.Repositories
         /// <inheritdoc/>
         public VersionEntity Add(VersionEntity version)
         {
-            if(version.IsTransient())
+            if (version.IsTransient())
             {
                 return _context.Versions.Add(version).Entity;
             }

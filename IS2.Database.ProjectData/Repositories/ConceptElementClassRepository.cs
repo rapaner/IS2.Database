@@ -12,11 +12,16 @@ namespace IS2.Database.ProjectData.Repositories
     {
         private readonly ProjectDataContext _context;
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="context">Контекст данных</param>
         public ConceptElementClassRepository(ProjectDataContext context)
         {
             _context = context;
         }
 
+        /// <inheritdoc/>
         public IUnitOfWork UnitOfWork => _context;
 
         /// <inheritdoc/>

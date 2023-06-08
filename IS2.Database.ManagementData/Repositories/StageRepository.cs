@@ -12,11 +12,16 @@ namespace IS2.Database.ManagementData.Repositories
     {
         private readonly ManagementDataContext _context;
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="context">Контекст данных</param>
         public StageRepository(ManagementDataContext context)
         {
             _context = context;
         }
 
+        /// <inheritdoc/>
         public IUnitOfWork UnitOfWork => _context;
 
         /// <inheritdoc/>

@@ -73,57 +73,5 @@ namespace IS2.Database.ConfigurationData.Model
         }
 
         #endregion Методы
-
-        #region Служебные методы
-
-        public override bool Equals(object obj)
-        {
-            if (obj == null || !(obj is UserSettingEntity))
-                return false;
-
-            if (ReferenceEquals(this, obj))
-                return true;
-
-            if (GetType() != obj.GetType())
-                return false;
-
-            UserSettingEntity item = (UserSettingEntity)obj;
-
-            if (item.IsTransient() || IsTransient())
-                return false;
-            else
-                return item.UserSettingId == UserSettingId
-                    && item.SettingId == SettingId
-                    && item.UserId == UserId
-                    && item.Value == Value;
-        }
-
-        public override int GetHashCode()
-        {
-            if (!IsTransient())
-            {
-                if (!_requestedHashCode.HasValue)
-                    _requestedHashCode = Id.GetHashCode() ^ 31; // XOR for random distribution (http://blogs.msdn.com/b/ericlippert/archive/2011/02/28/guidelines-and-rules-for-gethashcode.aspx)
-
-                return _requestedHashCode.Value;
-            }
-            else
-                return base.GetHashCode();
-        }
-
-        public static bool operator ==(UserSettingEntity left, UserSettingEntity right)
-        {
-            if (Equals(left, null))
-                return (Equals(right, null)) ? true : false;
-            else
-                return left.Equals(right);
-        }
-
-        public static bool operator !=(UserSettingEntity left, UserSettingEntity right)
-        {
-            return !(left == right);
-        }
-
-        #endregion Служебные методы
     }
 }

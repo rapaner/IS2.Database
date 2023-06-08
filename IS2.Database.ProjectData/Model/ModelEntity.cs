@@ -13,6 +13,7 @@ namespace IS2.Database.ProjectData.Model
         /// Конструктор
         /// </summary>
         /// <param name="modelId">Идентификатор модели</param>
+        /// <param name="name">Название</param>
         /// <param name="projectId">Идентификатор проекта</param>
         /// <param name="modelTypeId">Идентификатор типа модели</param>
         /// <param name="modelStatusId">Идентификатор статуса модели</param>
@@ -33,6 +34,7 @@ namespace IS2.Database.ProjectData.Model
         /// <summary>
         /// Новый объект
         /// </summary>
+        /// <param name="name">Название</param>
         /// <param name="projectId">Идентификатор проекта</param>
         /// <param name="modelTypeId">Идентификатор типа модели</param>
         /// <param name="modelStatusId">Идентификатор статуса модели</param>

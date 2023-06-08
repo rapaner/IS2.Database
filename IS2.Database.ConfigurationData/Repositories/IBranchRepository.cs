@@ -8,34 +8,27 @@ namespace IS2.Database.ConfigurationData.Repositories
     /// </summary>
     public interface IBranchRepository
     {
+        /// <summary>
+        /// Объект для сохранения данных
+        /// </summary>
         public IUnitOfWork UnitOfWork { get; }
 
         /// <summary>
         /// Получить
         /// </summary>
-        /// <param name="branchId"></param>
-        /// <returns></returns>
+        /// <param name="branchId">Идентификатор ветви</param>
         Task<BranchEntity> FindById(Guid branchId);
 
         /// <summary>
         /// Добавить
         /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
+        /// <param name="branch">Ветвь</param>
         BranchEntity Add(BranchEntity branch);
 
         /// <summary>
         /// Обновить
         /// </summary>
-        /// <param name="branchEntity"></param>
-        /// <returns></returns>
+        /// <param name="branch">Ветвь</param>
         BranchEntity Update(BranchEntity branch);
-
-        /// <summary>
-        /// Удалить
-        /// </summary>
-        /// <param name="branchEntity"></param>
-        /// <returns></returns>
-        BranchEntity Delete(BranchEntity branch);
     }
 }

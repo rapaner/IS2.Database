@@ -1,5 +1,8 @@
 ﻿namespace IS2.Database.ManagementData.Model
 {
+    /// <summary>
+    /// Сессия
+    /// </summary>
     public class SessionEntity
     {
         #region Конструкторы
@@ -60,6 +63,9 @@
 
         #region Служебные методы
 
+        /// <summary>
+        /// Несохраненный объект
+        /// </summary>
         public bool IsTransient()
         {
             return SessionId == default;

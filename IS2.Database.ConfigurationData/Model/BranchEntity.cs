@@ -7,6 +7,9 @@
     {
         #region Поля
 
+        /// <summary>
+        /// Хэш-код объекта
+        /// </summary>
         protected int? _requestedHashCode;
 
         #endregion Поля
@@ -59,56 +62,12 @@
 
         #region Служебные методы
 
+        /// <summary>
+        /// Несохраненный объект
+        /// </summary>
         public bool IsTransient()
         {
             return BranchId == default;
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (obj == null || !(obj is BranchEntity))
-                return false;
-
-            if (ReferenceEquals(this, obj))
-                return true;
-
-            if (GetType() != obj.GetType())
-                return false;
-
-            BranchEntity item = (BranchEntity)obj;
-
-            if (item.IsTransient() || IsTransient())
-                return false;
-            else
-                return item.BranchId == BranchId
-                    && item.Name == Name
-                    && item.IsDeleted == IsDeleted;
-        }
-
-        public override int GetHashCode()
-        {
-            if (!IsTransient())
-            {
-                if (!_requestedHashCode.HasValue)
-                    _requestedHashCode = BranchId.GetHashCode() ^ 31; // XOR for random distribution (http://blogs.msdn.com/b/ericlippert/archive/2011/02/28/guidelines-and-rules-for-gethashcode.aspx)
-
-                return _requestedHashCode.Value;
-            }
-            else
-                return base.GetHashCode();
-        }
-
-        public static bool operator ==(BranchEntity left, BranchEntity right)
-        {
-            if (Equals(left, null))
-                return (Equals(right, null)) ? true : false;
-            else
-                return left.Equals(right);
-        }
-
-        public static bool operator !=(BranchEntity left, BranchEntity right)
-        {
-            return !(left == right);
         }
 
         #endregion Служебные методы

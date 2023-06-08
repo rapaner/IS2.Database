@@ -2,6 +2,9 @@
 
 namespace IS2.Database.ManagementData.Model
 {
+    /// <summary>
+    /// Пользователь
+    /// </summary>
     public class UserEntity : VersioningEntity
     {
         #region Конструктор

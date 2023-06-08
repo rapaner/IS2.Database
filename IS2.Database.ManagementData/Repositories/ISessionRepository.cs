@@ -9,7 +9,7 @@ namespace IS2.Database.ManagementData.Repositories
     public interface ISessionRepository
     {
         /// <summary>
-        /// Unit of work
+        /// Объект для сохранения данных
         /// </summary>
         public IUnitOfWork UnitOfWork { get; }
 

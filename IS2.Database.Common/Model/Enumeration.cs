@@ -28,6 +28,10 @@ namespace IS2.Database.Common.Model
             Name = name;
         }
 
+        /// <summary>
+        /// Конвертация в стркоу
+        /// </summary>
+        /// <returns></returns>
         public override string ToString() => Name;
 
         /// <summary>
@@ -41,6 +45,7 @@ namespace IS2.Database.Common.Model
             return fields.Select(f => f.GetValue(null)).Cast<T>();
         }
 
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if (obj is not Enumeration otherValue)
@@ -52,6 +57,7 @@ namespace IS2.Database.Common.Model
             return typeMatches && valueMatches;
         }
 
+        /// <inheritdoc/>
         public override int GetHashCode() => Id.GetHashCode();
 
         /// <summary>
@@ -114,47 +120,56 @@ namespace IS2.Database.Common.Model
 
         #region IConvertible
 
+        /// <summary>
+        /// Получить код типа
+        /// </summary>
         public TypeCode GetTypeCode() => Id.GetTypeCode();
 
-        public bool ToBoolean(IFormatProvider provider)
-        {
-            throw new NotImplementedException();
-        }
+        /// <inheritdoc/>
+        /// <exception cref="NotImplementedException"></exception>
+        public bool ToBoolean(IFormatProvider provider) => throw new NotImplementedException();
 
+        /// <inheritdoc/>
         public byte ToByte(IFormatProvider provider) => (byte)Id;
 
+        /// <inheritdoc/>
         public char ToChar(IFormatProvider provider) => Name[0];
 
+        /// <inheritdoc/>
+        /// <exception cref="NotImplementedException"></exception>
         public DateTime ToDateTime(IFormatProvider provider)
         {
             throw new NotImplementedException();
         }
 
-        public decimal ToDecimal(IFormatProvider provider)
-        {
-            throw new NotImplementedException();
-        }
+        /// <inheritdoc/>
+        public decimal ToDecimal(IFormatProvider provider) => Id;
 
-        public double ToDouble(IFormatProvider provider)
-        {
-            throw new NotImplementedException();
-        }
+        /// <inheritdoc/>
+        public double ToDouble(IFormatProvider provider) => Id;
 
+        /// <inheritdoc/>
         public short ToInt16(IFormatProvider provider) => ((IConvertible)Id).ToInt16(provider);
 
+        /// <inheritdoc/>
         public int ToInt32(IFormatProvider provider) => Id;
 
+        /// <inheritdoc/>
         public long ToInt64(IFormatProvider provider) => Id;
 
+        /// <inheritdoc/>
         public sbyte ToSByte(IFormatProvider provider) => ((IConvertible)Id).ToSByte(provider);
 
+        /// <inheritdoc/>
         public float ToSingle(IFormatProvider provider)
         {
             throw new NotImplementedException();
         }
 
+        /// <inheritdoc/>
         public string ToString(IFormatProvider provider) => Name;
 
+        /// <inheritdoc/>
         public object ToType(Type conversionType, IFormatProvider provider)
         {
             if (conversionType.Equals(typeof(int)))
@@ -171,10 +186,13 @@ namespace IS2.Database.Common.Model
             }
         }
 
+        /// <inheritdoc/>
         public ushort ToUInt16(IFormatProvider provider) => ((IConvertible)Id).ToUInt16(provider);
 
+        /// <inheritdoc/>
         public uint ToUInt32(IFormatProvider provider) => ((IConvertible)Id).ToUInt32(provider);
 
+        /// <inheritdoc/>
         public ulong ToUInt64(IFormatProvider provider) => ((IConvertible)Id).ToUInt64(provider);
 
         #endregion IConvertible

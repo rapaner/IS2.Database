@@ -8,6 +8,9 @@ namespace IS2.Database.ConfigurationData.Repositories
     /// </summary>
     public interface IVersionRepository
     {
+        /// <summary>
+        /// Объект для сохранения данных
+        /// </summary>
         public IUnitOfWork UnitOfWork { get; }
 
         /// <summary>
@@ -22,9 +25,9 @@ namespace IS2.Database.ConfigurationData.Repositories
         VersionEntity Add(VersionEntity version);
 
         /// <summary>
-        /// Подвтердить версию
+        /// Обновить версию
         /// </summary>
-        /// <param name="versionId"></param>
+        /// <param name="version">Версия</param>
         VersionEntity Update(VersionEntity version);
     }
 }

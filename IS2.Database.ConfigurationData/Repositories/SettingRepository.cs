@@ -12,11 +12,16 @@ namespace IS2.Database.ConfigurationData.Repositories
     {
         private readonly ConfigurationDataContext _context;
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="context">Контекст данных</param>
         public SettingRepository(ConfigurationDataContext context)
         {
             _context = context;
         }
 
+        /// <inheritdoc/>
         public IUnitOfWork UnitOfWork => _context;
 
         /// <inheritdoc/>

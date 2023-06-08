@@ -11,7 +11,7 @@ namespace IS2.Database.Common.Repositories
     public interface IVersioningRepository<T, U> where T : VersioningEntity
     {
         /// <summary>
-        /// Unit of work
+        /// Объект для сохранения данных
         /// </summary>
         public IUnitOfWork UnitOfWork { get; }
 

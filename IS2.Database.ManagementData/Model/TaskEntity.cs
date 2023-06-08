@@ -40,10 +40,13 @@ namespace IS2.Database.ManagementData.Model
         /// <summary>
         /// Новый объект
         /// </summary>
-        /// <param name="roleId">Идентификатор роли</param>
-        /// <param name="userId">Идентификатор пользователя</param>
-        /// <param name="dateStart">Дата начала</param>
-        /// <param name="dateFinish">Дата окончания</param>
+        /// <param name="projectId">Идентификатор проекта</param>
+        /// <param name="name">Название</param>
+        /// <param name="statusId">Код статуса</param>
+        /// <param name="dateStartPlan">Плановый срок начала</param>
+        /// <param name="dateFinishPlan">Плановый срок окончания</param>
+        /// <param name="dateStartFact">Фактический срок начала</param>
+        /// <param name="dateFinishFact">Фактический срок окончания</param>
         /// <param name="versionId">Идентификатор версии</param>
         public static TaskEntity New(Guid projectId, string name, short statusId, DateTime dateStartPlan, DateTime dateFinishPlan, DateTime? dateStartFact, DateTime? dateFinishFact, Guid versionId)
         {
