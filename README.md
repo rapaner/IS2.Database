@@ -45,5 +45,5 @@
 
 ## Использование репозиториев
 Для управления каждой сущностью реализован соответствующий репозиторий. Репозитории находятся в папках *Repositories* каждого проекта.  
-Для регистрации их в контейнер сервисов в каждом проекте есть статический класс **DependencyInjection* с методами *AddConfigurationDataServices*,  *AddManagementDataServices* и *AddProjectDataServices*.  
+Для регистрации их в контейнер сервисов в каждом проекте есть статический класс *DependencyInjection* с методами *AddConfigurationDataServices*,  *AddManagementDataServices* и *AddProjectDataServices*.  
 [Пример](IS2.Database.ConfigurationData/appsettings.json) конфигурационного файла, который должен быть в программе.

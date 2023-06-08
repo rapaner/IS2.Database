@@ -113,14 +113,6 @@ namespace IS2.Database.ProjectData
             modelBuilder.ApplyConfiguration(new ModelTypeEntityConfiguration());
         }
 
-        /// <inheritdoc/>
-        public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
-        {
-            _ = await base.SaveChangesAsync(cancellationToken);
-
-            return true;
-        }
-
         /// <summary>
         /// Начало транзакции
         /// </summary>

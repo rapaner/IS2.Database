@@ -74,14 +74,6 @@ namespace IS2.Database.ConfigurationData
             modelBuilder.Entity<VersionTypeEntity>().HasData(Enumeration.GetAll<VersionTypeEntity>());
         }
 
-        /// <inheritdoc/>
-        public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
-        {
-            _ = await base.SaveChangesAsync(cancellationToken);
-
-            return true;
-        }
-
         /// <summary>
         /// Начало транзакции
         /// </summary>
