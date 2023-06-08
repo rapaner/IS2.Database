@@ -13,6 +13,22 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IS2.Database.ProjectData", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IS2.Database.Tests", "IS2.Database.Tests\IS2.Database.Tests.csproj", "{6F831194-98E2-46B3-AB4B-C273983BE60E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F9A52551-E93D-4E37-A4F8-85BF59E962A4}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{6B76F3DE-D697-4174-B102-9D3EDC217DE0}"
+	ProjectSection(SolutionItems) = preProject
+		docs\.vsconfig = docs\.vsconfig
+		docs\default_project.png = docs\default_project.png
+		docs\package_manager_console.png = docs\package_manager_console.png
+		docs\project_configuration.png = docs\project_configuration.png
+		docs\project_entity.png = docs\project_entity.png
+		docs\set_as_startup_project.png = docs\set_as_startup_project.png
+		docs\update_database.png = docs\update_database.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
