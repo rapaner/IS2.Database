@@ -1,6 +1,6 @@
 ﻿using IS2.Database.Common.Contexts;
-using IS2.Database.Common.Repositories;
 using IS2.Database.ManagementData.Model;
+using IS2.Database.ManagementData.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace IS2.Database.ManagementData.Repositories
@@ -8,7 +8,7 @@ namespace IS2.Database.ManagementData.Repositories
     /// <summary>
     /// Репозиторий назначений
     /// </summary>
-    public class AssignmentRepository : IVersioningRepository<AssignmentEntity, Guid>
+    public class AssignmentRepository : IAssignmentRepository
     {
         private readonly ManagementDataContext _context;
 

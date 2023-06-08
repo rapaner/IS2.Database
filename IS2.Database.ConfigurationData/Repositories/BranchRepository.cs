@@ -1,5 +1,6 @@
 ﻿using IS2.Database.Common.Contexts;
 using IS2.Database.ConfigurationData.Model;
+using IS2.Database.ConfigurationData.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace IS2.Database.ConfigurationData.Repositories

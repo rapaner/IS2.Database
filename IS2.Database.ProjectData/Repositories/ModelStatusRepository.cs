@@ -1,6 +1,7 @@
 ﻿using IS2.Database.Common.Contexts;
 using IS2.Database.Common.Repositories;
 using IS2.Database.ProjectData.Model;
+using IS2.Database.ProjectData.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace IS2.Database.ProjectData.Repositories
@@ -8,7 +9,7 @@ namespace IS2.Database.ProjectData.Repositories
     /// <summary>
     /// Репозиторий работы со статусами моделей
     /// </summary>
-    public class ModelStatusRepository : IVersioningRepository<ModelStatusEntity, Guid>
+    public class ModelStatusRepository : IModelStatusRepository
     {
         private readonly ProjectDataContext _context;
 

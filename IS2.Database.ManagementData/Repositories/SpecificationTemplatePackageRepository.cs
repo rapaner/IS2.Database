@@ -1,6 +1,6 @@
 ﻿using IS2.Database.Common.Contexts;
-using IS2.Database.Common.Repositories;
 using IS2.Database.ManagementData.Model;
+using IS2.Database.ManagementData.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace IS2.Database.ManagementData.Repositories
@@ -8,7 +8,7 @@ namespace IS2.Database.ManagementData.Repositories
     /// <summary>
     /// Репозиторий работы с наборами шаблонов спецификаций
     /// </summary>
-    public class SpecificationTemplatePackageRepository : IVersioningRepository<SpecificationTemplatePackageEntity, Guid>
+    public class SpecificationTemplatePackageRepository : ISpecificationTemplatePackageRepository
     {
         private readonly ManagementDataContext _context;
 

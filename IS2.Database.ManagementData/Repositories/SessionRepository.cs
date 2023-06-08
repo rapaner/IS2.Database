@@ -1,5 +1,6 @@
 ﻿using IS2.Database.Common.Contexts;
 using IS2.Database.ManagementData.Model;
+using IS2.Database.ManagementData.Repositories.Interfaces;
 
 namespace IS2.Database.ManagementData.Repositories
 {

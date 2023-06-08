@@ -1,6 +1,7 @@
 ﻿using IS2.Database.Common.Contexts;
 using IS2.Database.Common.Repositories;
 using IS2.Database.ProjectData.Model;
+using IS2.Database.ProjectData.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace IS2.Database.ProjectData.Repositories
@@ -8,7 +9,7 @@ namespace IS2.Database.ProjectData.Repositories
     /// <summary>
     /// Репозиторий работы с типами связей между действиями
     /// </summary>
-    public class ActionLinkTypeRepository : IVersioningRepository<ActionLinkTypeEntity, short>
+    public class ActionLinkTypeRepository : IActionLinkTypeRepository
     {
         private readonly ProjectDataContext _context;
 

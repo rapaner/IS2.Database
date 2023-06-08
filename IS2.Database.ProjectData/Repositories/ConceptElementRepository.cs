@@ -1,6 +1,6 @@
 ﻿using IS2.Database.Common.Contexts;
-using IS2.Database.Common.Repositories;
 using IS2.Database.ProjectData.Model;
+using IS2.Database.ProjectData.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace IS2.Database.ProjectData.Repositories
@@ -8,7 +8,7 @@ namespace IS2.Database.ProjectData.Repositories
     /// <summary>
     /// Репозиторий работы с элементами концептуальной структуры
     /// </summary>
-    public class ConceptElementRepository : IVersioningRepository<ConceptElementEntity, Guid>
+    public class ConceptElementRepository : IConceptElementRepository
     {
         private readonly ProjectDataContext _context;
 

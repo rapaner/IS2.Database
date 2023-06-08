@@ -1,7 +1,7 @@
 ﻿using IS2.Database.Common.Contexts;
 using IS2.Database.ConfigurationData.Model;
 
-namespace IS2.Database.ConfigurationData.Repositories
+namespace IS2.Database.ConfigurationData.Repositories.Interfaces
 {
     /// <summary>
     /// Репозиторий работы с версиями

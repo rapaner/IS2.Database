@@ -1,14 +1,14 @@
 ﻿using IS2.Database.Common.Contexts;
-using IS2.Database.Common.Repositories;
 using IS2.Database.ConfigurationData.Model;
+using IS2.Database.ConfigurationData.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace IS2.Database.ConfigurationData.Repositories
 {
     /// <summary>
-    /// Репозиторий настроек ользователей
+    /// Репозиторий настроек пользователей
     /// </summary>
-    public class UserSettingRepository : IVersioningRepository<UserSettingEntity, Guid>
+    public class UserSettingRepository : IUserSettingRepository
     {
         private readonly ConfigurationDataContext _context;
 

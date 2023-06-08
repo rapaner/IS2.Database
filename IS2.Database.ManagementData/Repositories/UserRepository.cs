@@ -1,6 +1,6 @@
 ﻿using IS2.Database.Common.Contexts;
-using IS2.Database.Common.Repositories;
 using IS2.Database.ManagementData.Model;
+using IS2.Database.ManagementData.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace IS2.Database.ManagementData.Repositories
@@ -8,7 +8,7 @@ namespace IS2.Database.ManagementData.Repositories
     /// <summary>
     /// Репозиторий работы с пользователями
     /// </summary>
-    public class UserRepository : IVersioningRepository<UserEntity, Guid>
+    public class UserRepository : IUserRepository
     {
         private readonly ManagementDataContext _context;
 

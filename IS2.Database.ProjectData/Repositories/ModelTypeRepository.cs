@@ -1,6 +1,6 @@
 ﻿using IS2.Database.Common.Contexts;
-using IS2.Database.Common.Repositories;
 using IS2.Database.ProjectData.Model;
+using IS2.Database.ProjectData.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace IS2.Database.ProjectData.Repositories
@@ -8,7 +8,7 @@ namespace IS2.Database.ProjectData.Repositories
     /// <summary>
     /// Репозиторий работы с типами моделей
     /// </summary>
-    public class ModelTypeRepository : IVersioningRepository<ModelTypeEntity, Guid>
+    public class ModelTypeRepository : IModelTypeRepository
     {
         private readonly ProjectDataContext _context;
 

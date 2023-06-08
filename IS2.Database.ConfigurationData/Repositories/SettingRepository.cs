@@ -1,6 +1,7 @@
 ﻿using IS2.Database.Common.Contexts;
 using IS2.Database.Common.Repositories;
 using IS2.Database.ConfigurationData.Model;
+using IS2.Database.ConfigurationData.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace IS2.Database.ConfigurationData.Repositories
@@ -8,7 +9,7 @@ namespace IS2.Database.ConfigurationData.Repositories
     /// <summary>
     /// Репозиторий настроек
     /// </summary>
-    public class SettingRepository : IVersioningRepository<SettingEntity, Guid>
+    public class SettingRepository : ISettingRepository
     {
         private readonly ConfigurationDataContext _context;
 
